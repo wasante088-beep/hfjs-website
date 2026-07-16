@@ -314,6 +314,19 @@
   .faq details[open] summary::after{content:"–"}
   .faq .a{padding:0 0 24px;color:var(--muted);font-size:15px;max-width:66ch}
   @media (max-width:720px){ .check{grid-template-columns:1fr} }
+
+  /* ---------- mobile menu ---------- */
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;margin:-8px;color:var(--ink)}
+  .menu-btn svg{display:block;width:26px;height:26px}
+  .mobile-menu{display:none;border-bottom:1px solid var(--hair);background:var(--bg)}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;padding:16px 22px;text-decoration:none;color:var(--ink);font-size:16px;font-weight:500;border-top:1px solid var(--hair)}
+  .mobile-menu a:first-child{border-top:none}
+  .mobile-menu a:hover,.mobile-menu a.active{color:var(--indigo)}
+  .mobile-menu .mm-cta{background:var(--indigo);color:var(--cream);font-weight:600}
+  @media (max-width:880px){
+    .menu-btn{display:block}
+  }
 </style>
 </head>
 <body>
@@ -326,9 +339,19 @@
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h18M4 14h18M4 20h18"/></svg>
+    </button>
     <a class="btn" href="contact.html">Get a free quote</a>
   </div>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a class="mm-cta" href="contact.html">Get a free quote</a>
+</div>
 
 <header class="hero" style="padding-bottom:0">
   <div class="wrap">
@@ -513,6 +536,15 @@
     entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
   }, {threshold: 0.12});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+<script>
+  (function(){
+    var b = document.getElementById('menuBtn'), m = document.getElementById('mobileMenu');
+    if(b&&m){ b.addEventListener('click', function(){
+      var open = m.classList.toggle('open');
+      b.setAttribute('aria-expanded', open);
+    }); }
+  })();
 </script>
 </body>
 </html>
