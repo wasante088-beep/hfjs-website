@@ -250,7 +250,7 @@
   /* ---------- responsive ---------- */
   @media (max-width:880px){
     .navlinks{display:none}
-    .nav-in .btn{padding:10px 18px;font-size:13.5px}
+    .nav-in > .btn{display:none}
     .wordmark{font-size:20px}
     .wordmark span{letter-spacing:.18em}
   }
@@ -308,10 +308,10 @@
       <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
     </div>
+    <a class="btn" href="contact.html">Get a free quote</a>
     <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
       <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h18M4 14h18M4 20h18"/></svg>
     </button>
-    <a class="btn" href="contact.html">Get a free quote</a>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
@@ -334,7 +334,8 @@
       </div>
     </div>
   </div>
-  <div class="hero-img img-slot noimg">
+  <div class="hero-img img-slot">
+    <img src="about-hero.jpg" alt="The HFJS team, Pantang, Accra" onerror="this.parentElement.classList.add('noimg')">
     <div class="fb" aria-hidden="true"><span class="g">HFJS</span><span class="l">Team photo coming soon</span></div>
     <span class="caption">Pantang, Accra</span>
   </div>
@@ -397,8 +398,8 @@
       </ul>
     </div>
     <div class="team-imgs reveal">
-      <div class="ph a img-slot noimg"><div class="fb" aria-hidden="true"><span class="g">HFJS</span><span class="l">Founder &amp; team</span></div></div>
-      <div class="ph b img-slot noimg"><div class="fb" aria-hidden="true"><span class="g">HFJS</span><span class="l">On the job</span></div></div>
+      <div class="ph a img-slot"><img src="about-team-1.jpg" alt="The HFJS founder and team, Accra" loading="lazy" onerror="this.parentElement.classList.add('noimg')"><div class="fb" aria-hidden="true"><span class="g">HFJS</span><span class="l">Founder &amp; team</span></div></div>
+      <div class="ph b img-slot"><img src="about-team-2.jpg" alt="HFJS staff at work on a job in Accra" loading="lazy" onerror="this.parentElement.classList.add('noimg')"><div class="fb" aria-hidden="true"><span class="g">HFJS</span><span class="l">On the job</span></div></div>
       <div class="badge"><div class="n">19+</div><div class="t">named institutions served, from banks to hospitals</div></div>
     </div>
   </div>
