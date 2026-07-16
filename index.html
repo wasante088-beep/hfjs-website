@@ -303,6 +303,15 @@
          background:var(--hair);transition:background .2s,transform .2s}
   .q-dot.on{background:var(--tan);transform:scale(1.25)}
   @media (max-width:720px){ .q-track{min-height:280px} }
+
+  /* ---------- full-width commercial strip ---------- */
+  .team .team-copy{max-width:none}
+  .team-badge{font-size:16px;color:var(--muted);margin-top:28px}
+  .team-badge b{font-family:'Lora',serif;font-weight:600;font-size:22px;color:var(--indigo)}
+  .team-strip{position:relative;height:clamp(300px,52vw,540px);margin-top:44px;overflow:hidden;background:var(--bg-deep)}
+  .team-strip .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .team-strip::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(29,28,74,.28),rgba(29,28,74,0) 45%);pointer-events:none}
+  .team-strip .caption{position:absolute;left:22px;bottom:18px;color:var(--cream);z-index:2;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
 </style>
 </head>
 <body>
@@ -421,7 +430,7 @@
 </section>
 
 <section class="team" id="team">
-  <div class="wrap team-grid">
+  <div class="wrap">
     <div class="team-copy reveal">
       <h2>Trusted by banks. <em>Gentle on homes.</em></h2>
       <p>The same trained, supervised teams that clean Ecobank Headquarters, PaySwitch, Stanbic Heights and Alpha &amp; Omega Specialist Hospital also handle apartments, estates and family homes across Accra — a team of 25+ trained, supervised professionals. Uniformed staff, PPE on every job, and safe, approved chemicals throughout.</p>
@@ -431,16 +440,17 @@
         <li>Eco-friendly products <span>Safe, approved chemicals only</span></li>
         <li>Safety-first culture <span>PPE, warning signage &amp; ventilation guidance</span></li>
       </ul>
+      <p class="team-badge reveal"><b>500+</b> jobs completed across Greater Accra since 2021.</p>
     </div>
-    <div class="team-imgs reveal">
-      <div class="ph a img-slot"><div class="slides" id="teamSlides">
-        <img src="commercial-1.jpg" class="on" alt="HFJS team deep-cleaning an auditorium carpet with industrial machines" onerror="this.closest('.img-slot').classList.add('noimg')">
-        <img src="commercial-2.jpg" alt="Auditorium after an HFJS commercial deep clean" loading="lazy">
-        <img src="commercial-3.jpg" alt="Commercial venue cleaned by HFJS, Accra" loading="lazy">
-      </div><div class="fb" aria-hidden="true"><span class="g">HFJS</span><span class="l">Commercial cleaning</span></div></div></div>
-      <div class="ph b img-slot"><img src="carpet-detail.jpg" alt="Detail of a freshly extraction-cleaned commercial carpet" loading="lazy" onerror="this.parentElement.classList.add('noimg')"><div class="fb" aria-hidden="true"><span class="g">HFJS</span><span class="l">Carpet cleaning</span></div></div></div>
-      <div class="badge"><div class="n">500+</div><div class="t">jobs completed across Greater Accra since 2021</div></div>
+  </div>
+  <div class="team-strip img-slot reveal">
+    <div class="slides" id="teamSlides">
+      <img src="commercial-1.jpg" class="on" alt="HFJS team deep-cleaning an auditorium carpet with industrial machines" onerror="this.closest('.img-slot').classList.add('noimg')">
+      <img src="commercial-2.jpg" alt="Auditorium after an HFJS commercial deep clean" loading="lazy">
+      <img src="commercial-3.jpg" alt="Commercial venue cleaned by HFJS, Accra" loading="lazy">
     </div>
+    <div class="fb" aria-hidden="true"><span class="g">HFJS</span><span class="l">Commercial cleaning · Accra</span></div>
+    <span class="caption">Commercial deep clean · Accra</span>
   </div>
 </section>
 
