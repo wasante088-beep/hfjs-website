@@ -290,6 +290,14 @@
   .ba-tag.before{left:16px}
   .ba-tag.after{right:16px;background:var(--indigo)}
   .ba input[type=range]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:6}
+  .ba-pairs{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .ba-pair{
+    background:var(--bg-deep);border:none;border-radius:100px;padding:11px 20px;cursor:pointer;
+    font-family:'Schibsted Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;
+    color:var(--muted);transition:background .15s,color .15s;
+  }
+  .ba-pair:hover{color:var(--ink)}
+  .ba-pair.on{background:var(--indigo);color:var(--cream)}
   @media (max-width:720px){ .ba{aspect-ratio:4/3} }
 
   /* ---------- testimonial slideshow ---------- */
@@ -522,17 +530,21 @@
 <section class="ba-sec">
   <div class="wrap">
     <div class="ba-head reveal">
-      <h2>Compound pressure washing, <em style="font-style:italic;color:var(--indigo)">before and after.</em></h2>
+      <h2>Real jobs, <em style="font-style:italic;color:var(--indigo)">before and after.</em></h2>
       <span class="label">Drag to compare</span>
     </div>
-    <div class="ba reveal" id="ba" aria-label="Before and after comparison of a pressure-washed compound">
-      <div class="layer before-layer"><img src="wash-before.jpg" alt="Compound paving dark with dirt and algae before HFJS pressure washing" onerror="document.getElementById('ba').style.display='none'"></div>
+    <div class="ba reveal" id="ba" aria-label="Before and after comparison of a real HFJS job">
+      <div class="layer before-layer"><img src="wash-before.jpg" alt="Compound paving dark with dirt and algae before HFJS pressure washing"></div>
       <div class="layer after-layer" id="afterLayer"><img src="wash-after.jpg" alt="The same style of compound paving clean and bright after HFJS pressure washing"></div>
       <span class="ba-tag before">Before</span>
       <span class="ba-tag after">After</span>
       <div class="ba-handle" id="baHandle"></div>
       <div class="ba-knob" id="baKnob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7 L3 12 L8 17 M16 7 L21 12 L16 17"/></svg></div>
       <input type="range" id="baRange" min="0" max="100" value="50" step="0.5" aria-label="Reveal before and after comparison">
+    </div>
+    <div class="ba-pairs reveal" id="baPairs" role="tablist" aria-label="Choose a job to compare">
+      <button class="ba-pair on" role="tab" aria-selected="true">Compound pressure washing</button>
+      <button class="ba-pair" role="tab" aria-selected="false">Kitchen deep clean</button>
     </div>
   </div>
 </section>
@@ -629,7 +641,7 @@
   slideshow('heroSlides', 4200);
   slideshow('teamSlides', 4800);
 
-  // before / after
+  // before / after — carousel of real job pairs
   (function(){
     var ba = document.getElementById('ba');
     if (!ba) return;
@@ -637,6 +649,8 @@
     var afterLayer = document.getElementById('afterLayer');
     var handle = document.getElementById('baHandle');
     var knob = document.getElementById('baKnob');
+    var beforeImg = ba.querySelector('.before-layer img');
+    var afterImg = afterLayer.querySelector('img');
     function setSplit(p){
       p = Math.max(0, Math.min(100, p));
       afterLayer.style.clipPath = 'inset(0 0 0 ' + p + '%)';
@@ -649,6 +663,48 @@
       if (e.target === range) return;
       var r = ba.getBoundingClientRect();
       setSplit(((e.clientX - r.left) / r.width) * 100);
+    });
+
+    // job pairs — order here must match the buttons in #baPairs
+    var pairs = [
+      { before:'wash-before.jpg', after:'wash-after.jpg', pos:'50% 50%',
+        bAlt:'Compound paving dark with dirt and algae before HFJS pressure washing',
+        aAlt:'The same style of compound paving clean and bright after HFJS pressure washing' },
+      { before:'kitchen-before.jpg', after:'kitchen-after.jpg', pos:'50% 42%',
+        bAlt:'Kitchen floor tiles covered in stains and grime before an HFJS deep clean, Accra',
+        aAlt:'The same kitchen with the tiles clean and gleaming after the HFJS deep clean' }
+    ];
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('#baPairs .ba-pair'));
+    var cur = 0;
+    function loadPair(n){
+      var p = pairs[n];
+      beforeImg.src = p.before; beforeImg.alt = p.bAlt; beforeImg.style.objectPosition = p.pos;
+      afterImg.src = p.after; afterImg.alt = p.aAlt; afterImg.style.objectPosition = p.pos;
+      tabs[cur].classList.remove('on'); tabs[cur].setAttribute('aria-selected','false');
+      cur = n;
+      tabs[cur].classList.add('on'); tabs[cur].setAttribute('aria-selected','true');
+      setSplit(50);
+    }
+    tabs.forEach(function(t, n){
+      t.addEventListener('click', function(){ if (n !== cur) loadPair(n); });
+    });
+
+    // preload every pair: hide any tab whose photos are missing,
+    // and hide the whole section only if no pair works
+    pairs.forEach(function(p, n){
+      [p.before, p.after].forEach(function(src){
+        var im = new Image();
+        im.onerror = function(){
+          if (p.broken) return;
+          p.broken = true;
+          if (tabs[n]) tabs[n].style.display = 'none';
+          var alive = -1;
+          for (var k = 0; k < pairs.length; k++){ if (!pairs[k].broken){ alive = k; break; } }
+          if (alive === -1){ document.querySelector('.ba-sec').style.display = 'none'; }
+          else if (n === cur){ loadPair(alive); }
+        };
+        im.src = src;
+      });
     });
   })();
 
