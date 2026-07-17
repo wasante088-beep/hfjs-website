@@ -49,7 +49,7 @@
   .wordmark span{color:var(--muted);font-family:'Schibsted Grotesk',sans-serif;font-size:10px;letter-spacing:.24em;text-transform:uppercase;display:block;margin-top:1px}
   .navlinks{display:flex;gap:30px;font-size:14px;font-weight:500}
   .navlinks a{text-decoration:none;color:var(--muted)}
-  .navlinks a:hover{color:var(--ink)}
+  .navlinks a:hover,.navlinks a.active{color:var(--ink)}
   .btn{
     display:inline-block;text-decoration:none;font-weight:600;font-size:14.5px;
     padding:13px 26px;border-radius:100px;background:var(--ink);color:var(--cream);
@@ -292,7 +292,7 @@
   .ba input[type=range]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:6}
   .ba-pairs{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
   .ba-pair{
-    background:var(--bg-deep);border:none;border-radius:100px;padding:11px 20px;cursor:pointer;
+    background:var(--bg-deep);border:none;border-radius:100px;padding:12px 20px;cursor:pointer;
     font-family:'Schibsted Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;
     color:var(--muted);transition:background .15s,color .15s;
   }
@@ -309,9 +309,10 @@
           font-style:normal;margin-top:26px;display:block}
   .q .who b{color:var(--ink);font-weight:600;display:block;font-size:15px}
   .q-dots{display:flex;gap:10px;justify-content:center;margin-top:34px}
-  .q-dot{width:9px;height:9px;border-radius:50%;border:none;padding:0;cursor:pointer;
+  .q-dot{width:9px;height:9px;border-radius:50%;border:none;padding:0;cursor:pointer;position:relative;
          background:var(--hair);transition:background .2s,transform .2s}
   .q-dot.on{background:var(--tan);transform:scale(1.25)}
+  .q-dot::after{content:"";position:absolute;inset:-13px}
   @media (max-width:720px){ .q-track{min-height:280px} }
 
   /* ---------- full-width commercial strip ---------- */
@@ -349,21 +350,21 @@
 
 <nav>
   <div class="wrap nav-in">
-    <a class="wordmark" href="#">HFJS<span>Hawilma Fumigation &amp; Janitorial</span></a>
+    <a class="wordmark" href="index.html">HFJS<span>Hawilma Fumigation &amp; Janitorial</span></a>
     <div class="navlinks">
-      <a href="#services">Services</a>
-      <a href="#guarantee">Guarantee</a>
-      <a href="#team">Our team</a>
-      <a href="#process">Process</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <a class="btn" href="#estimate">Get a free quote</a>
+    <a class="btn" href="contact.html">Get a free quote</a>
     <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
       <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h18M4 14h18M4 20h18"/></svg>
     </button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="contact.html">Contact</a>
@@ -587,9 +588,10 @@
     <div class="foot-top">
       <span>© 2026 Hawilma Fumigation &amp; Janitorial Services (HFJS) · Y21 Alafia Street, Pantang PNT (GM-085-7730), Accra</span>
       <nav class="f">
-        <a href="#services">Services</a>
-        <a href="#guarantee">Guarantee</a>
-        <a href="#estimate">Quote</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </div>

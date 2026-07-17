@@ -63,7 +63,7 @@
   .wordmark span{color:var(--muted);font-family:'Schibsted Grotesk',sans-serif;font-size:10px;letter-spacing:.24em;text-transform:uppercase;display:block;margin-top:1px}
   .navlinks{display:flex;gap:30px;font-size:14px;font-weight:500}
   .navlinks a{text-decoration:none;color:var(--muted)}
-  .navlinks a:hover{color:var(--ink)}
+  .navlinks a:hover,.navlinks a.active{color:var(--ink)}
   .btn{
     display:inline-block;text-decoration:none;font-weight:600;font-size:14.5px;
     padding:13px 26px;border-radius:100px;background:var(--ink);color:var(--cream);
@@ -339,6 +339,7 @@
     <div class="navlinks">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
+      <a href="services.html" class="active">Services</a>
       <a href="contact.html">Contact</a>
     </div>
     <a class="btn" href="contact.html">Get a free quote</a>
@@ -350,7 +351,7 @@
 <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="services.html">Services</a>
+    <a href="services.html" class="active">Services</a>
     <a href="contact.html">Contact</a>
     <a class="mm-cta" href="contact.html">Get a free quote</a>
 </div>
@@ -525,6 +526,7 @@
       <nav class="f">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
+        <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
