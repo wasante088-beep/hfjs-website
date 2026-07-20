@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
 <title>Fumigation &amp; Cleaning Services in Accra | HFJS — Hawilma Fumigation &amp; Janitorial Services</title>
-<meta name="description" content="EPA-licensed fumigation and professional cleaning services in Accra. Trusted by banks, hotels, hospitals and homes across Ghana. Free quotes on WhatsApp — HFJS, Pantang.">
+<meta name="description" content="Professional fumigation and cleaning services in Accra. Trusted by banks, hotels, hospitals and homes across Ghana. Free quotes on WhatsApp — HFJS, Pantang.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="icon" type="image/x-icon" href="/favi.jpg">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,600&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -46,8 +46,9 @@
     display:flex;align-items:center;justify-content:space-between;
     height:74px;border-bottom:1px solid var(--hair);
   }
-  .wordmark{font-family:'Lora',serif;font-size:22px;text-decoration:none;letter-spacing:.01em}
-  .wordmark span{color:var(--muted);font-family:'Schibsted Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-top:1px}
+  .wordmark{font-family:'Lora',serif;font-size:22px;text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:11px}
+  .nav-logo{width:42px;height:42px;display:block;flex:0 0 auto}
+  .wordmark .wm-txt span{color:var(--muted);font-family:'Schibsted Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-top:1px}
   .navlinks{display:flex;gap:30px;font-size:14px;font-weight:500}
   .navlinks a{text-decoration:none;color:var(--muted)}
   .navlinks a:hover,.navlinks a.active{color:var(--ink)}
@@ -63,8 +64,20 @@
   .btn.line:hover{background:var(--ink);color:var(--cream)}
 
   /* ---------- hero ---------- */
-  .hero{padding:64px 0 0}
+  .hero{
+    padding:64px 0 0;position:relative;
+    background:linear-gradient(180deg,#E6EFEE 0%,var(--bg) 82%);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(-45deg,rgba(14,42,71,.05) 0 1px,transparent 1px 13px);
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 88%);
+    mask-image:linear-gradient(180deg,#000 0%,transparent 88%);
+  }
+  .hero > *{position:relative;z-index:1}
+  .hero-logo{width:66px;height:66px;display:block;margin-bottom:18px}
   .hero .label{margin-bottom:22px;display:block}
+  .hero .label::before{content:"";display:block;width:46px;height:4px;border-radius:2px;background:var(--tan);margin-bottom:14px}
   .hero h1{
     font-size:clamp(46px,8.6vw,104px);
     margin-bottom:26px;max-width:15ch;
@@ -210,6 +223,14 @@
   .cta .tel{font-size:15px;color:var(--cream);text-decoration:none;border-bottom:1px solid var(--tan);padding-bottom:2px}
 
   footer{background:var(--indigo);color:#7E97AE;overflow:hidden}
+  /* ---------- client wall ---------- */
+  .clients{padding:44px 0 34px;border-bottom:1px solid rgba(255,255,255,.09);margin-bottom:14px}
+  .cl-label{display:block;font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--tan);margin-bottom:22px}
+  .cl-row{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center}
+  .cl{font-family:'Schibsted Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B9CBDC;display:inline-flex;align-items:center;min-height:30px}
+  .cl img{height:28px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.85}
+  @media (max-width:720px){ .cl-row{gap:12px 22px} .cl{font-size:11.5px} }
+
   .foot-top{
     display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     padding:26px 0;border-top:1px solid var(--hair-light);font-size:13px;
@@ -253,10 +274,10 @@
     .navlinks{display:none}
     .nav-in > .btn{display:none}
     .wordmark{font-size:20px}
-    .wordmark span{letter-spacing:.18em}
+    .wordmark .wm-txt span{letter-spacing:.18em}
   }
   @media (max-width:420px){
-    .wordmark span{display:none}
+    .wordmark .wm-txt span{display:none}
   }
   @media (max-width:880px){
     .cards{grid-template-columns:1fr}
@@ -276,30 +297,19 @@
   .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease}
   .slides img.on{opacity:1}
   /* ---------- before / after ---------- */
-  .ba-sec{padding:0 0 96px}
+  .ba-sec{padding:8px 0 96px}
   .ba-head{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin-bottom:22px;flex-wrap:wrap}
   .ba-head h2{font-size:clamp(26px,3.4vw,40px)}
   .ba-head .label{white-space:nowrap}
-  .ba{position:relative;overflow:hidden;aspect-ratio:16/10;user-select:none;touch-action:none;background:var(--bg-deep);border-radius:6px}
-  .ba .layer{position:absolute;inset:0}
-  .ba .layer img{width:100%;height:100%;object-fit:cover;display:block}
-  .ba .after-layer{clip-path:inset(0 0 0 50%)}
-  .ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--cream);z-index:4;pointer-events:none}
-  .ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;border-radius:50%;background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:center;z-index:5;pointer-events:none}
-  .ba-knob svg{width:20px;height:20px}
-  .ba-tag{position:absolute;top:16px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;z-index:4;padding:6px 12px;border-radius:100px;background:rgba(15,18,21,.72);color:var(--cream)}
-  .ba-tag.before{left:16px}
-  .ba-tag.after{right:16px;background:var(--indigo)}
-  .ba input[type=range]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:6}
-  .ba-pairs{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
-  .ba-pair{
-    background:var(--bg-deep);border:none;border-radius:100px;padding:12px 20px;cursor:pointer;
-    font-family:'Schibsted Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;
-    color:var(--muted);transition:background .15s,color .15s;
-  }
-  .ba-pair:hover{color:var(--ink)}
-  .ba-pair.on{background:var(--indigo);color:var(--cream)}
-  @media (max-width:720px){ .ba{aspect-ratio:4/3} }
+  .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .ba-show{margin:0}
+  .ba-frame{position:relative;aspect-ratio:16/11;border-radius:22px;overflow:hidden;background:var(--indigo)}
+  .ba-state{position:absolute;top:14px;left:14px;z-index:2;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(15,18,21,.55);padding:7px 12px;border-radius:100px;transition:background .3s,color .3s}
+  .ba-state.after{background:var(--tan);color:var(--ink)}
+  .ba-show figcaption{margin-top:12px;font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--muted)}
+  .ba-frame.noimg{display:none}
+  .ba-show:has(.noimg){display:none}
+  @media (max-width:720px){ .ba-grid{grid-template-columns:1fr;gap:26px} .ba-frame{aspect-ratio:4/3;border-radius:16px} }
 
   /* ---------- testimonial slideshow ---------- */
   .q-track{position:relative;min-height:210px}
@@ -351,7 +361,7 @@
 
 <nav>
   <div class="wrap nav-in">
-    <a class="wordmark" href="index.html">HFJS<span>Hawilma Fumigation &amp; Janitorial Services</span></a>
+    <a class="wordmark" href="index.html"><img class="nav-logo" src="logo.png" alt=""><span class="wm-txt">HFJS<span>Hawilma Fumigation &amp; Janitorial Services</span></span></a>
     <div class="navlinks">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
@@ -374,10 +384,11 @@
 
 <header class="hero">
   <div class="wrap">
+    <img class="hero-logo" src="logo.png" alt="HFJS — Hawilma Fumigation &amp; Janitorial Services logo">
     <span class="label">Hawilma Fumigation &amp; Janitorial Services — Since 2021</span>
     <h1>Cleaning &amp;<br><span class="ital">fumigation</span> services<br>in Accra.</h1>
     <div class="hero-row">
-      <p>EPA-licensed fumigation and professional cleaning for homes, offices, banks, hotels and factories across Greater Accra — every job supervised, inspected and signed off by you. Quotes are free, on WhatsApp.</p>
+      <p>Professional fumigation and cleaning for homes, offices, banks, hotels and factories across Greater Accra — every job supervised, inspected and signed off by you. Quotes are free, on WhatsApp.</p>
       <div class="hero-cta">
         <a class="btn" href="https://wa.me/233550267502?text=Hello%20HFJS%2C%20I%27d%20like%20a%20free%20quote%20for%20">WhatsApp us — free quote</a>
         <a class="btn line" href="#services">View services</a>
@@ -386,9 +397,9 @@
   </div>
   <div class="hero-img img-slot">
     <div class="slides" id="heroSlides">
-      <img src="highrise-1.jpg" class="on" alt="HFJS high-rise team cleaning a glass facade in Accra, with the HFJS banner on the boom lift" onerror="this.closest('.img-slot').classList.add('noimg')">
-      <img src="highrise-2.jpg" alt="Boom lift washing the glass tower at Fiore Heights, Accra" loading="lazy">
-      <img src="highrise-3.jpg" alt="HFJS cradle cleaning a high-rise glass facade" loading="lazy">
+      <img src="highrise-1.jpg" class="on" alt="HFJS high-rise team cleaning a glass facade in Accra, with the HFJS banner on the boom lift">
+      <img src="highrise-2.jpg" alt="Boom lift washing the glass tower at Fiore Heights, Accra">
+      <img src="highrise-3.jpg" alt="HFJS cradle cleaning a high-rise glass facade">
     </div>
     <div class="fb" aria-hidden="true"><span class="g">HFJS</span><span class="l">High-rise cleaning · Accra</span></div>
     <span class="caption">High-rise façade cleaning · Central Accra</span>
@@ -397,7 +408,7 @@
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track" id="tickerTrack">
-    <span>Cleaning <i>·</i> Fumigation &amp; pest control <i>·</i> EPA-licensed <i>·</i> Available 24/7 <i>·</i> High-rise specialists <i>·</i> Trained &amp; supervised teams <i>·</i> Safe, approved chemicals <i>·</i> Client sign-off on every job <i>·</i></span>
+    <span>Cleaning <i>·</i> Fumigation &amp; pest control <i>·</i> 25+ trained professionals <i>·</i> Available 24/7 <i>·</i> High-rise specialists <i>·</i> Trained &amp; supervised teams <i>·</i> Safe, approved chemicals <i>·</i> Client sign-off on every job <i>·</i></span>
   </div>
 </div>
 
@@ -451,12 +462,43 @@
             <h3>Fumigation &amp; Pest Control</h3>
             <span class="price"><span class="from">Pricing</span><span class="amt">Free quote</span></span>
           </div>
-          <p>EPA-licensed treatment for termites, bedbugs, cockroaches, ants, mosquitoes, fleas and ticks — one-time or monthly/quarterly contracts, with written re-entry guidance.</p>
-          <span class="go">Book a free inspection</span>
+          <p>Professional treatment for termites, bedbugs, cockroaches, ants, mosquitoes, fleas and ticks — one-time or monthly/quarterly contracts, with written re-entry guidance.</p>
+          <span class="go">Book a fumigation quote</span>
         </div>
       </a>
     </div>
-    <p class="svc-note reveal"><b>Every job starts with a free inspection and a written quotation.</b> These four are just the headlines — HFJS offers 18+ cleaning and fumigation services. Message us on WhatsApp and tell us what you need.</p>
+    <p class="svc-note reveal"><b>Every job starts with a clear written quotation — free, on WhatsApp.</b> These four are just the headlines — HFJS offers 18+ cleaning and fumigation services. Message us on WhatsApp and tell us what you need.</p>
+  </div>
+</section>
+
+<section class="ba-sec">
+  <div class="wrap">
+    <div class="ba-head reveal">
+      <h2>Real jobs, <em style="font-style:italic;color:var(--indigo)">before and after.</em></h2>
+      <span class="label">Same space · same camera</span>
+    </div>
+    <div class="ba-grid">
+      <figure class="ba-show reveal">
+        <div class="ba-frame img-slot">
+          <div class="slides" id="baWash">
+            <img src="wash-before.jpg" class="on" data-tag="Before" alt="A compound dark with dirt and algae before HFJS pressure washing, Accra">
+            <img src="wash-after.jpg" data-tag="After" alt="The same compound bright and clean after HFJS pressure washing">
+          </div>
+          <span class="ba-state" id="baWashTag">Before</span>
+        </div>
+        <figcaption>Compound pressure washing — our most requested service</figcaption>
+      </figure>
+      <figure class="ba-show reveal">
+        <div class="ba-frame img-slot">
+          <div class="slides" id="baKitchen">
+            <img src="kitchen-before.jpg" class="on" data-tag="Before" style="object-position:50% 42%" alt="Kitchen floor tiles covered in stains and grime before an HFJS deep clean, Accra">
+            <img src="kitchen-after.jpg" data-tag="After" style="object-position:50% 42%" alt="The same kitchen with the tiles clean and gleaming after the HFJS deep clean">
+          </div>
+          <span class="ba-state" id="baKitchenTag">Before</span>
+        </div>
+        <figcaption>Kitchen deep clean</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -466,7 +508,7 @@
     <h2>No job is finished until it's inspected against our checklist and <em>signed off by you.</em></h2>
     <div class="g-stats">
       <div class="g-stat"><div class="n">2021</div><div class="t">serving homes, offices and institutions across Ghana since</div></div>
-      <div class="g-stat"><div class="n">6 steps</div><div class="t">one documented process, from inspection to after-service support</div></div>
+      <div class="g-stat"><div class="n">6 steps</div><div class="t">one documented process, from quotation to after-service support</div></div>
       <div class="g-stat"><div class="n">18+</div><div class="t">cleaning and fumigation services under one supervised team</div></div>
     </div>
   </div>
@@ -478,8 +520,8 @@
       <h2>Trusted by banks. <em>Gentle on homes.</em></h2>
       <p>The same trained, supervised teams that clean Ecobank Headquarters, PaySwitch, Stanbic Heights and Alpha &amp; Omega Specialist Hospital also handle apartments, estates and family homes across Accra — a team of 25+ trained, supervised professionals. Uniformed staff, PPE on every job, and safe, approved chemicals throughout.</p>
       <ul class="points">
-        <li>EPA-licensed <span>Certified fumigation &amp; pest management</span></li>
-        <li>Modern equipment <span>Pressure washers, industrial vacuums, fogging machines</span></li>
+        <li>Pest control specialists <span>Trained, supervised fumigation &amp; pest management</span></li>
+        <li>Modern equipment <span>Pressure washers, floor scrubbers, steamers, industrial vacuums &amp; fogging machines</span></li>
         <li>Eco-friendly products <span>Safe, approved chemicals only</span></li>
         <li>Safety-first culture <span>PPE, warning signage &amp; ventilation guidance</span></li>
       </ul>
@@ -487,9 +529,9 @@
   </div>
   <div class="team-strip img-slot reveal">
     <div class="slides" id="teamSlides">
-      <img src="commercial-1.jpg" class="on" alt="HFJS team deep-cleaning an auditorium carpet with industrial machines" onerror="this.closest('.img-slot').classList.add('noimg')">
-      <img src="commercial-2.jpg" alt="Auditorium after an HFJS commercial deep clean" loading="lazy">
-      <img src="commercial-3.jpg" alt="Commercial venue cleaned by HFJS, Accra" loading="lazy">
+      <img src="commercial-1.jpg" class="on" alt="HFJS team deep-cleaning an auditorium carpet with industrial machines">
+      <img src="commercial-2.jpg" alt="Auditorium after an HFJS commercial deep clean">
+      <img src="commercial-3.jpg" alt="Commercial venue cleaned by HFJS, Accra">
     </div>
     <div class="fb" aria-hidden="true"><span class="g">HFJS</span><span class="l">Commercial cleaning · Accra</span></div>
     <span class="caption">Commercial deep clean · Accra</span>
@@ -505,14 +547,14 @@
 <section id="process">
   <div class="wrap">
     <div class="sec-top reveal">
-      <h2>From inspection to sign-off.</h2>
+      <h2>From quotation to sign-off.</h2>
       <p>One documented process on every job — here is how it works.</p>
     </div>
     <div class="steps">
       <div class="step reveal">
         <span class="label">Step one</span>
-        <h3>Free inspection &amp; quotation</h3>
-        <p>Message us on WhatsApp or call. We inspect your space, agree the scope, and send a clear written quotation — free, with no obligation.</p>
+        <h3>Quotation &amp; agreement</h3>
+        <p>Message us on WhatsApp or call — photos and a short description of the space are enough. We agree the scope and send a clear written quotation, free, with no obligation.</p>
       </div>
       <div class="step reveal">
         <span class="label">Step two</span>
@@ -528,28 +570,6 @@
   </div>
 </section>
 
-
-<section class="ba-sec">
-  <div class="wrap">
-    <div class="ba-head reveal">
-      <h2>Real jobs, <em style="font-style:italic;color:var(--indigo)">before and after.</em></h2>
-      <span class="label">Drag to compare</span>
-    </div>
-    <div class="ba reveal" id="ba" aria-label="Before and after comparison of a real HFJS job">
-      <div class="layer before-layer"><img src="wash-before.jpg" alt="Compound paving dark with dirt and algae before HFJS pressure washing"></div>
-      <div class="layer after-layer" id="afterLayer"><img src="wash-after.jpg" alt="The same style of compound paving clean and bright after HFJS pressure washing"></div>
-      <span class="ba-tag before">Before</span>
-      <span class="ba-tag after">After</span>
-      <div class="ba-handle" id="baHandle"></div>
-      <div class="ba-knob" id="baKnob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7 L3 12 L8 17 M16 7 L21 12 L16 17"/></svg></div>
-      <input type="range" id="baRange" min="0" max="100" value="50" step="0.5" aria-label="Reveal before and after comparison">
-    </div>
-    <div class="ba-pairs reveal" id="baPairs" role="tablist" aria-label="Choose a job to compare">
-      <button class="ba-pair on" role="tab" aria-selected="true">Compound pressure washing</button>
-      <button class="ba-pair" role="tab" aria-selected="false">Kitchen deep clean</button>
-    </div>
-  </div>
-</section>
 
 <section class="quote" id="reviews">
   <div class="wrap reveal">
@@ -574,7 +594,7 @@
 <section class="cta" id="estimate">
   <div class="wrap reveal">
     <h2>Get your free quote <em>today.</em></h2>
-    <p>Tell us what needs cleaning — or what needs to go — and where you are in Accra. We arrange a free inspection and send a written quotation — and we're available 24/7, so message any time.</p>
+    <p>Tell us what needs cleaning — or what needs to go — and where you are in Accra. We send a clear written quotation — and we're available 24/7, so message any time.</p>
     <div class="row">
       <a class="btn light" href="https://wa.me/233550267502?text=Hello%20HFJS%2C%20I%27d%20like%20a%20free%20quote%20for%20">WhatsApp us — free quote</a>
       <a class="tel" href="tel:+233550267502">Call 055 026 7502</a>
@@ -585,6 +605,21 @@
 
 <footer>
   <div class="wrap">
+        <div class="clients">
+      <span class="cl-label">Some of the names we&#8217;ve worked with</span>
+      <div class="cl-row">
+        <span class="cl"><img src="client-ecobank.png" alt="Ecobank" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-trasacco.png" alt="Trasacco" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-kss.png" alt="Kwadwo Sheldon Studios" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-ronor.png" alt="Ronor Motors" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-wortech.png" alt="Wortech Solutions" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-korba.png" alt="KORBA" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-payswitch.png" alt="PaySwitch" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-adisco.png" alt="Adisco Club House" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-jeva.png" alt="Jeva Oil" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-trademart.png" alt="Trademart" onerror="this.replaceWith(this.alt)"></span>
+      </div>
+    </div>
     <div class="foot-mark">HFJS<small>Hawilma Fumigation &amp; Janitorial Services</small></div>
     <div class="foot-top">
       <span>© 2026 Hawilma Fumigation &amp; Janitorial Services (HFJS) · Y21 Alafia Street, Pantang PNT (GM-085-7730), Accra</span>
@@ -628,88 +663,71 @@
     start();
   })();
 
-  // slideshows
-  function slideshow(id, ms){
+  // slideshows — open-ended: auto-discovers numbered photos (highrise-4.jpg, highrise-5.jpg, ...)
+  function slideshow(id, ms, probe){
     var box = document.getElementById(id);
     if (!box) return;
-    var imgs = box.querySelectorAll('img');
-    if (imgs.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var i = 0;
+    var slot = box.closest('.img-slot');
+
+    // drop any declared photo that fails to load, instead of showing a blank slide
+    Array.prototype.forEach.call(box.querySelectorAll('img'), function(im){
+      function drop(){ im.remove(); check(); }
+      if (im.complete && im.naturalWidth === 0) drop();
+      else im.addEventListener('error', drop);
+    });
+    function check(){
+      var live = box.querySelectorAll('img');
+      if (!live.length){ if (slot) slot.classList.add('noimg'); return; }
+      if (!box.querySelector('img.on')) live[0].classList.add('on');
+    }
+
+    // look for additional numbered photos; tolerates one numbering gap
+    if (probe){
+      var n = probe.start, misses = 0, cap = probe.max || 24;
+      (function next(){
+        if (n > cap || misses > 1) return;
+        var im = new Image();
+        im.onload = function(){
+          misses = 0;
+          im.alt = probe.alt || '';
+          box.appendChild(im);
+          n++; next();
+        };
+        im.onerror = function(){ misses++; n++; next(); };
+        im.src = probe.prefix + n + '.jpg';
+      })();
+    }
+
+    check();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     setInterval(function(){
-      imgs[i].classList.remove('on');
-      i = (i + 1) % imgs.length;
-      imgs[i].classList.add('on');
+      var live = box.querySelectorAll('img');
+      if (live.length < 2) return;
+      var cur = box.querySelector('img.on') || live[0];
+      var i = Array.prototype.indexOf.call(live, cur);
+      cur.classList.remove('on');
+      live[(i + 1) % live.length].classList.add('on');
     }, ms);
   }
-  slideshow('heroSlides', 4200);
-  slideshow('teamSlides', 4800);
+  slideshow('heroSlides', 4200, {prefix:'highrise-', start:4, alt:'HFJS high-rise and exterior cleaning job, Accra'});
+  slideshow('teamSlides', 4800, {prefix:'commercial-', start:4, alt:'HFJS commercial cleaning job, Accra'});
 
-  // before / after — carousel of real job pairs
-  (function(){
-    var ba = document.getElementById('ba');
-    if (!ba) return;
-    var range = document.getElementById('baRange');
-    var afterLayer = document.getElementById('afterLayer');
-    var handle = document.getElementById('baHandle');
-    var knob = document.getElementById('baKnob');
-    var beforeImg = ba.querySelector('.before-layer img');
-    var afterImg = afterLayer.querySelector('img');
-    function setSplit(p){
-      p = Math.max(0, Math.min(100, p));
-      afterLayer.style.clipPath = 'inset(0 0 0 ' + p + '%)';
-      handle.style.left = p + '%';
-      knob.style.left = p + '%';
-      range.value = p;
-    }
-    range.addEventListener('input', function(){ setSplit(parseFloat(range.value)); });
-    ba.addEventListener('pointerdown', function(e){
-      if (e.target === range) return;
-      var r = ba.getBoundingClientRect();
-      setSplit(((e.clientX - r.left) / r.width) * 100);
-    });
-
-    // job pairs — order here must match the buttons in #baPairs
-    var pairs = [
-      { before:'wash-before.jpg', after:'wash-after.jpg', pos:'50% 50%',
-        bAlt:'Compound paving dark with dirt and algae before HFJS pressure washing',
-        aAlt:'The same style of compound paving clean and bright after HFJS pressure washing' },
-      { before:'kitchen-before.jpg', after:'kitchen-after.jpg', pos:'50% 42%',
-        bAlt:'Kitchen floor tiles covered in stains and grime before an HFJS deep clean, Accra',
-        aAlt:'The same kitchen with the tiles clean and gleaming after the HFJS deep clean' }
-    ];
-    var tabs = Array.prototype.slice.call(document.querySelectorAll('#baPairs .ba-pair'));
-    var cur = 0;
-    function loadPair(n){
-      var p = pairs[n];
-      beforeImg.src = p.before; beforeImg.alt = p.bAlt; beforeImg.style.objectPosition = p.pos;
-      afterImg.src = p.after; afterImg.alt = p.aAlt; afterImg.style.objectPosition = p.pos;
-      tabs[cur].classList.remove('on'); tabs[cur].setAttribute('aria-selected','false');
-      cur = n;
-      tabs[cur].classList.add('on'); tabs[cur].setAttribute('aria-selected','true');
-      setSplit(50);
-    }
-    tabs.forEach(function(t, n){
-      t.addEventListener('click', function(){ if (n !== cur) loadPair(n); });
-    });
-
-    // preload every pair: hide any tab whose photos are missing,
-    // and hide the whole section only if no pair works
-    pairs.forEach(function(p, n){
-      [p.before, p.after].forEach(function(src){
-        var im = new Image();
-        im.onerror = function(){
-          if (p.broken) return;
-          p.broken = true;
-          if (tabs[n]) tabs[n].style.display = 'none';
-          var alive = -1;
-          for (var k = 0; k < pairs.length; k++){ if (!pairs[k].broken){ alive = k; break; } }
-          if (alive === -1){ document.querySelector('.ba-sec').style.display = 'none'; }
-          else if (n === cur){ loadPair(alive); }
-        };
-        im.src = src;
-      });
-    });
-  })();
+  // before / after — twin slideshows with a live Before/After badge
+  function baTag(slidesId, tagId){
+    var box = document.getElementById(slidesId), tag = document.getElementById(tagId);
+    if (!box || !tag) return;
+    setInterval(function(){
+      var on = box.querySelector('img.on');
+      if (on && on.dataset.tag){
+        tag.textContent = on.dataset.tag;
+        tag.classList.toggle('after', on.dataset.tag === 'After');
+      }
+    }, 350);
+  }
+  slideshow('baWash', 2800);
+  slideshow('baKitchen', 2800);
+  baTag('baWash', 'baWashTag');
+  baTag('baKitchen', 'baKitchenTag');
 
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });

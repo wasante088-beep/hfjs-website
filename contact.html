@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
 <title>Contact HFJS | Free Cleaning &amp; Fumigation Quote — Pantang, Accra</title>
 <meta name="description" content="Get a free cleaning or fumigation quote from HFJS in Accra. WhatsApp or call 055 026 7502 — available 24/7. Based at Pantang, serving all of Greater Accra.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="icon" type="image/x-icon" href="/favi.jpg">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,600&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -46,8 +46,9 @@
     display:flex;align-items:center;justify-content:space-between;
     height:74px;border-bottom:1px solid var(--hair);
   }
-  .wordmark{font-family:'Lora',serif;font-size:22px;text-decoration:none;letter-spacing:.01em}
-  .wordmark span{color:var(--muted);font-family:'Schibsted Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-top:1px}
+  .wordmark{font-family:'Lora',serif;font-size:22px;text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:11px}
+  .nav-logo{width:42px;height:42px;display:block;flex:0 0 auto}
+  .wordmark .wm-txt span{color:var(--muted);font-family:'Schibsted Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-top:1px}
   .navlinks{display:flex;gap:30px;font-size:14px;font-weight:500}
   .navlinks a{text-decoration:none;color:var(--muted)}
   .navlinks a:hover,.navlinks a.active{color:var(--ink)}
@@ -63,8 +64,19 @@
   .btn.line:hover{background:var(--ink);color:var(--cream)}
 
   /* ---------- hero ---------- */
-  .hero{padding:64px 0 0}
+  .hero{
+    padding:64px 0 0;position:relative;
+    background:linear-gradient(180deg,#E6EFEE 0%,var(--bg) 82%);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(-45deg,rgba(14,42,71,.05) 0 1px,transparent 1px 13px);
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 88%);
+    mask-image:linear-gradient(180deg,#000 0%,transparent 88%);
+  }
+  .hero > *{position:relative;z-index:1}
   .hero .label{margin-bottom:22px;display:block}
+  .hero .label::before{content:"";display:block;width:46px;height:4px;border-radius:2px;background:var(--tan);margin-bottom:14px}
   .hero h1{
     font-size:clamp(46px,8.6vw,104px);
     margin-bottom:26px;max-width:15ch;
@@ -210,6 +222,14 @@
   .cta .tel{font-size:15px;color:var(--cream);text-decoration:none;border-bottom:1px solid var(--tan);padding-bottom:2px}
 
   footer{background:var(--indigo);color:#7E97AE;overflow:hidden}
+  /* ---------- client wall ---------- */
+  .clients{padding:44px 0 34px;border-bottom:1px solid rgba(255,255,255,.09);margin-bottom:14px}
+  .cl-label{display:block;font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--tan);margin-bottom:22px}
+  .cl-row{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center}
+  .cl{font-family:'Schibsted Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B9CBDC;display:inline-flex;align-items:center;min-height:30px}
+  .cl img{height:28px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.85}
+  @media (max-width:720px){ .cl-row{gap:12px 22px} .cl{font-size:11.5px} }
+
   .foot-top{
     display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     padding:26px 0;border-top:1px solid var(--hair-light);font-size:13px;
@@ -242,6 +262,12 @@
   /* ---------- reveal ---------- */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
+  /* ---------- photo strip ---------- */
+  .strip3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .strip3 .sp{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:var(--indigo)}
+  .strip3 .sp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  @media (max-width:720px){ .strip3{gap:8px} .strip3 .sp{border-radius:12px} }
+  .strip3{padding:0 0 96px;margin-top:-20px}
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none}
     .card,.card-img img{transition:none}
@@ -253,10 +279,10 @@
     .navlinks{display:none}
     .nav-in > .btn{display:none}
     .wordmark{font-size:20px}
-    .wordmark span{letter-spacing:.18em}
+    .wordmark .wm-txt span{letter-spacing:.18em}
   }
   @media (max-width:420px){
-    .wordmark span{display:none}
+    .wordmark .wm-txt span{display:none}
   }
   @media (max-width:880px){
     .cards{grid-template-columns:1fr}
@@ -378,7 +404,7 @@
 
 <nav>
   <div class="wrap nav-in">
-    <a class="wordmark" href="index.html">HFJS<span>Hawilma Fumigation &amp; Janitorial Services</span></a>
+    <a class="wordmark" href="index.html"><img class="nav-logo" src="logo.png" alt=""><span class="wm-txt">HFJS<span>Hawilma Fumigation &amp; Janitorial Services</span></span></a>
     <div class="navlinks">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -466,8 +492,31 @@
   </form>
 </div>
 
+<div class="wrap">
+  <div class="strip3 reveal">
+    <div class="sp"><img src="card-office.jpg" alt="The HFJS janitorial team on site at Ecobank, Accra" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+    <div class="sp"><img src="wash-after.jpg" alt="A compound washed bright and clean by HFJS, Accra" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+    <div class="sp"><img src="commercial-2.jpg" alt="HFJS team resetting a commercial venue, Accra" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+  </div>
+</div>
+
 <footer>
   <div class="wrap">
+        <div class="clients">
+      <span class="cl-label">Some of the names we&#8217;ve worked with</span>
+      <div class="cl-row">
+        <span class="cl"><img src="client-ecobank.png" alt="Ecobank" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-trasacco.png" alt="Trasacco" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-kss.png" alt="Kwadwo Sheldon Studios" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-ronor.png" alt="Ronor Motors" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-wortech.png" alt="Wortech Solutions" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-korba.png" alt="KORBA" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-payswitch.png" alt="PaySwitch" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-adisco.png" alt="Adisco Club House" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-jeva.png" alt="Jeva Oil" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-trademart.png" alt="Trademart" onerror="this.replaceWith(this.alt)"></span>
+      </div>
+    </div>
     <div class="foot-mark">HFJS<small>Hawilma Fumigation &amp; Janitorial Services</small></div>
     <div class="foot-top">
       <span>© 2026 Hawilma Fumigation &amp; Janitorial Services (HFJS) · Y21 Alafia Street, Pantang PNT (GM-085-7730), Accra</span>

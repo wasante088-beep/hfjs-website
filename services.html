@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
 <title>Cleaning &amp; Fumigation Services in Accra | HFJS</title>
-<meta name="description" content="18+ professional cleaning and fumigation services in Accra from HFJS: deep cleaning, office &amp; janitorial contracts, post-construction, high-rise, pressure washing and EPA-licensed pest control. Free quotes on WhatsApp.">
+<meta name="description" content="18+ professional cleaning and fumigation services in Accra from HFJS: deep cleaning, office &amp; janitorial contracts, post-construction, high-rise, compound pressure washing, sofa &amp; carpet cleaning and professional pest control. Free quotes on WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="icon" type="image/x-icon" href="/favi.jpg">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,600&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
@@ -14,12 +14,12 @@
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"Is fumigation safe for my children and pets?","acceptedAnswer":{"@type":"Answer","text":"Yes — safety is procedural at HFJS. We use EPA-approved chemicals, correct dilution, PPE and warning signage during treatment, and we give you written ventilation and re-entry guidance so you know exactly when it's safe to return. Children and pets simply stay out of the treated area until the stated re-entry time."}},
+    {"@type":"Question","name":"Is fumigation safe for my children and pets?","acceptedAnswer":{"@type":"Answer","text":"Yes — safety is procedural at HFJS. We use safe, approved chemicals, correct dilution, PPE and warning signage during treatment, and we give you written ventilation and re-entry guidance so you know exactly when it's safe to return. Children and pets simply stay out of the treated area until the stated re-entry time."}},
     {"@type":"Question","name":"How long after fumigation before we can go back inside?","acceptedAnswer":{"@type":"Answer","text":"Typically 3–5 hours after a simple spraying and 12–24 hours after heavy treatment. Your exact re-entry time is confirmed in writing for your specific job."}},
-    {"@type":"Question","name":"How much do your services cost?","acceptedAnswer":{"@type":"Answer","text":"Every job is priced individually, because a two-bedroom apartment and a banking hall are not the same job. Message us on WhatsApp, we arrange a free inspection, and you receive a written quotation covering scope, timeline and payment terms — free, with no obligation."}},
+    {"@type":"Question","name":"How much do your services cost?","acceptedAnswer":{"@type":"Answer","text":"Every job is priced individually, because a two-bedroom apartment and a banking hall are not the same job. Message us on WhatsApp with photos and a short description of the space, and you receive a written quotation covering scope, timeline and payment terms — free, with no obligation."}},
     {"@type":"Question","name":"Which areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"We're based at Pantang, Accra, and work across Greater Accra daily — Adenta, Madina, Abokobi, East Legon, Spintex, Tema and beyond — with jobs across Ghana on request."}},
-    {"@type":"Question","name":"How often should I fumigate my home or office?","acceptedAnswer":{"@type":"Answer","text":"It depends on the pest and the environment: for most homes and food businesses in Accra, a quarterly treatment keeps infestations from re-establishing, while high-risk sites go monthly. We offer both as contracts, and our inspection will tell you honestly what your space actually needs."}},
-    {"@type":"Question","name":"Do you bring your own equipment and supplies?","acceptedAnswer":{"@type":"Answer","text":"Everything — pressure washers, industrial vacuums, floor scrubbers and polishers, fogging machines, telescopic pole systems, and approved chemicals. For high-rise work we bring boom lifts, rope access and water-fed pole systems. You provide access; we provide the rest."}}
+    {"@type":"Question","name":"How often should I fumigate my home or office?","acceptedAnswer":{"@type":"Answer","text":"It depends on the pest and the environment: for most homes and food businesses in Accra, a quarterly treatment keeps infestations from re-establishing, while high-risk sites go monthly. We offer both as contracts, and we'll tell you honestly what your space actually needs."}},
+    {"@type":"Question","name":"Do you bring your own equipment and supplies?","acceptedAnswer":{"@type":"Answer","text":"Everything — pressure washers, industrial vacuums, floor scrubbers and polishers, steamers, fogging machines, telescopic pole systems, and approved chemicals. For high-rise work we bring boom lifts, rope access and water-fed pole systems. You provide access; we provide the rest."}}
   ]
 }
 </script>
@@ -60,8 +60,9 @@
     display:flex;align-items:center;justify-content:space-between;
     height:74px;border-bottom:1px solid var(--hair);
   }
-  .wordmark{font-family:'Lora',serif;font-size:22px;text-decoration:none;letter-spacing:.01em}
-  .wordmark span{color:var(--muted);font-family:'Schibsted Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-top:1px}
+  .wordmark{font-family:'Lora',serif;font-size:22px;text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:11px}
+  .nav-logo{width:42px;height:42px;display:block;flex:0 0 auto}
+  .wordmark .wm-txt span{color:var(--muted);font-family:'Schibsted Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-top:1px}
   .navlinks{display:flex;gap:30px;font-size:14px;font-weight:500}
   .navlinks a{text-decoration:none;color:var(--muted)}
   .navlinks a:hover,.navlinks a.active{color:var(--ink)}
@@ -77,8 +78,19 @@
   .btn.line:hover{background:var(--ink);color:var(--cream)}
 
   /* ---------- hero ---------- */
-  .hero{padding:64px 0 0}
+  .hero{
+    padding:64px 0 0;position:relative;
+    background:linear-gradient(180deg,#E6EFEE 0%,var(--bg) 82%);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(-45deg,rgba(14,42,71,.05) 0 1px,transparent 1px 13px);
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 88%);
+    mask-image:linear-gradient(180deg,#000 0%,transparent 88%);
+  }
+  .hero > *{position:relative;z-index:1}
   .hero .label{margin-bottom:22px;display:block}
+  .hero .label::before{content:"";display:block;width:46px;height:4px;border-radius:2px;background:var(--tan);margin-bottom:14px}
   .hero h1{
     font-size:clamp(46px,8.6vw,104px);
     margin-bottom:26px;max-width:15ch;
@@ -224,6 +236,14 @@
   .cta .tel{font-size:15px;color:var(--cream);text-decoration:none;border-bottom:1px solid var(--tan);padding-bottom:2px}
 
   footer{background:var(--indigo);color:#7E97AE;overflow:hidden}
+  /* ---------- client wall ---------- */
+  .clients{padding:44px 0 34px;border-bottom:1px solid rgba(255,255,255,.09);margin-bottom:14px}
+  .cl-label{display:block;font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--tan);margin-bottom:22px}
+  .cl-row{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center}
+  .cl{font-family:'Schibsted Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B9CBDC;display:inline-flex;align-items:center;min-height:30px}
+  .cl img{height:28px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.85}
+  @media (max-width:720px){ .cl-row{gap:12px 22px} .cl{font-size:11.5px} }
+
   .foot-top{
     display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     padding:26px 0;border-top:1px solid var(--hair-light);font-size:13px;
@@ -267,10 +287,10 @@
     .navlinks{display:none}
     .nav-in > .btn{display:none}
     .wordmark{font-size:20px}
-    .wordmark span{letter-spacing:.18em}
+    .wordmark .wm-txt span{letter-spacing:.18em}
   }
   @media (max-width:420px){
-    .wordmark span{display:none}
+    .wordmark .wm-txt span{display:none}
   }
   @media (max-width:880px){
     .cards{grid-template-columns:1fr}
@@ -289,6 +309,14 @@
   .svc-sec{padding:84px 0}
   .svc-sec.alt{background:var(--bg-deep)}
   .svc-sec .sec-top{margin-bottom:34px}
+  /* ---------- section media ---------- */
+  .svc-media{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:21/9;margin:0 0 38px;background:var(--indigo)}
+  .svc-media .slides{position:absolute;inset:0}
+  .svc-media .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease}
+  .svc-media .slides img.on{opacity:1}
+  .svc-media .cap{position:absolute;left:16px;bottom:14px;z-index:2;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(15,18,21,.5);padding:7px 12px;border-radius:100px}
+  .svc-media.noimg{display:none}
+  @media (max-width:720px){ .svc-media{aspect-ratio:4/3;border-radius:16px;margin-bottom:28px} }
   .who{font-size:15px;color:var(--muted);max-width:60ch;margin-bottom:26px}
   .who b{color:var(--ink);font-weight:600}
   .check{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 34px;margin:0 0 26px;border-top:1px solid var(--hair);padding-top:24px}
@@ -336,7 +364,7 @@
 
 <nav>
   <div class="wrap nav-in">
-    <a class="wordmark" href="index.html">HFJS<span>Hawilma Fumigation &amp; Janitorial Services</span></a>
+    <a class="wordmark" href="index.html"><img class="nav-logo" src="logo.png" alt=""><span class="wm-txt">HFJS<span>Hawilma Fumigation &amp; Janitorial Services</span></span></a>
     <div class="navlinks">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -362,7 +390,7 @@
     <span class="label">Hawilma Fumigation &amp; Janitorial Services</span>
     <h1>Cleaning &amp; fumigation <span class="ital">services</span> in Accra.</h1>
     <div class="hero-row">
-      <p>18+ services under one supervised, EPA-licensed team — from a one-time home deep clean to routine corporate contracts and multi-storey façade work. Every job starts with a free inspection and a written quotation.</p>
+      <p>18+ services under one supervised team — from a one-time home deep clean to routine corporate contracts and multi-storey façade work. Every job starts with a clear written quotation, free on WhatsApp.</p>
       <div class="hero-cta">
         <a class="btn" href="https://wa.me/233550267502?text=Hello%20HFJS%2C%20I%27d%20like%20a%20free%20quote%20for%20cleaning%20or%20fumigation.">WhatsApp us — free quote</a>
         <a class="btn line" href="#fumigation">Jump to fumigation</a>
@@ -373,18 +401,24 @@
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track" id="tickerTrack">
-    <span>Fumigation <i>·</i> Deep cleaning <i>·</i> Office &amp; janitorial <i>·</i> Post-construction <i>·</i> High-rise <i>·</i> Pressure washing <i>·</i> Disinfection <i>·</i> Available 24/7 <i>·</i></span>
+    <span>Fumigation <i>·</i> Compound pressure washing <i>·</i> Deep cleaning <i>·</i> Sofa &amp; carpet care <i>·</i> Office &amp; janitorial <i>·</i> Post-construction <i>·</i> High-rise <i>·</i> Disinfection <i>·</i> Available 24/7 <i>·</i></span>
   </div>
 </div>
 
 <section class="svc-sec dark" id="fumigation">
   <div class="wrap">
     <div class="sec-top reveal"><h2>Fumigation &amp; pest control</h2></div>
+    <div class="svc-media img-slot reveal">
+      <div class="slides" id="m-fum">
+        <img src="card-fumigation.jpg" class="on" alt="HFJS technician in PPE fogging a compound at night, Accra">
+      </div>
+      <span class="cap">Fumigation on the job · Accra</span>
+    </div>
     <div class="reveal">
-      <p class="who">For <b>homes, offices, restaurants, hotels, schools and warehouses</b> dealing with termites, bedbugs, cockroaches, ants, mosquitoes, fleas, ticks or general crawling and flying insects. EPA-licensed treatment, one-time or on a monthly/quarterly contract.</p>
+      <p class="who">For <b>homes, offices, restaurants, hotels, schools and warehouses</b> dealing with termites, bedbugs, cockroaches, ants, mosquitoes, fleas, ticks or general crawling and flying insects. Professional treatment, one-time or on a monthly/quarterly contract.</p>
       <ul class="check">
         <li>Inspection and identification of the infestation</li>
-        <li>EPA-approved chemicals, correctly handled and diluted</li>
+        <li>Approved chemicals, correctly handled and diluted</li>
         <li>Warning signage and PPE throughout treatment</li>
         <li>Written re-entry guidance after every job</li>
         <li>Follow-up inspection and after-service support</li>
@@ -395,9 +429,42 @@
     </div>
   </div>
 </section>
-<section class="svc-sec " id="residential">
+<section class="svc-sec " id="pressurewashing">
+  <div class="wrap">
+    <div class="sec-top reveal"><h2>Compound &amp; pressure washing</h2></div>
+    <div class="svc-media img-slot reveal">
+      <div class="slides" id="m-pw">
+        <img src="wash-before.jpg" class="on" alt="A compound dark with dirt and algae before HFJS pressure washing, Accra">
+        <img src="wash-after.jpg" alt="The same compound bright and clean after HFJS pressure washing">
+      </div>
+      <span class="cap">Compound wash — before &amp; after · Accra</span>
+    </div>
+    <div class="reveal">
+      <p class="who">For <b>homes, estates, offices and commercial premises</b> across Accra — one of our most requested services. Years of dust, algae and stains lifted off your compound, often in a single day.</p>
+      <ul class="check">
+        <li>Compound, paving and driveway pressure washing</li>
+        <li>Exterior walls, gates and fences</li>
+        <li>Car parks, walkways and entrances</li>
+        <li>Algae, mould and deep stain removal</li>
+        <li>Gutters and drainage areas</li>
+        <li>One-time washes or scheduled maintenance</li>
+      </ul>
+      <p class="meta-line"><b>In demand:</b> compound washing is one of our most booked services — before events, after the rains, and for estate handovers.</p>
+      <a class="btn" href="https://wa.me/233550267502?text=Hello%20HFJS%2C%20I%27d%20like%20a%20free%20quote%20for%20compound%20pressure%20washing.">WhatsApp us — compound washing quote</a>
+    </div>
+  </div>
+</section>
+<section class="svc-sec alt" id="residential">
   <div class="wrap">
     <div class="sec-top reveal"><h2>Residential &amp; deep cleaning</h2></div>
+    <div class="svc-media img-slot reveal">
+      <div class="slides" id="m-res">
+        <img src="card-residential.jpg" class="on" alt="HFJS staff detail-cleaning a residential interior, Accra">
+        <img src="kitchen-before.jpg" alt="Kitchen floor stained and dirty before an HFJS deep clean">
+        <img src="kitchen-after.jpg" alt="The same kitchen gleaming after the HFJS deep clean">
+      </div>
+      <span class="cap">Residential deep cleaning · Accra</span>
+    </div>
     <div class="reveal">
       <p class="who">For <b>homes, apartments, estates and town houses</b> — a one-time deep reset, a move-in/move-out clean, or regular general cleaning.</p>
       <ul class="check">
@@ -413,9 +480,39 @@
     </div>
   </div>
 </section>
+<section class="svc-sec " id="upholstery">
+  <div class="wrap">
+    <div class="sec-top reveal"><h2>Sofa, carpet &amp; upholstery cleaning</h2></div>
+    <div class="svc-media img-slot reveal">
+      <div class="slides" id="m-uph">
+        <img src="commercial-1.jpg" class="on" alt="HFJS staff deep-cleaning carpet with an industrial extraction machine, Accra">
+      </div>
+      <span class="cap">Carpet &amp; upholstery deep clean · Accra</span>
+    </div>
+    <div class="reveal">
+      <p class="who">For <b>homes, offices, hotels, churches and event venues</b> — deep cleaning for the fabrics you live on, with industrial extraction machines that lift what brushing and airing never will.</p>
+      <ul class="check">
+        <li>Sofa &amp; armchair deep cleaning — fabric and leather-safe methods</li>
+        <li>Mattress deep cleaning &amp; sanitization</li>
+        <li>Carpet &amp; rug shampooing with industrial extraction</li>
+        <li>Stain &amp; odour treatment</li>
+        <li>Curtains &amp; blinds care</li>
+        <li>Dries in hours, with safe, approved products</li>
+      </ul>
+      <p class="meta-line"><b>Good to know:</b> we clean on-site at your home or office — no need to transport your furniture anywhere.</p>
+      <a class="btn" href="https://wa.me/233550267502?text=Hello%20HFJS%2C%20I%27d%20like%20a%20free%20quote%20for%20sofa%2C%20carpet%20and%20upholstery%20cleaning.">WhatsApp us — upholstery quote</a>
+    </div>
+  </div>
+</section>
 <section class="svc-sec alt" id="office">
   <div class="wrap">
     <div class="sec-top reveal"><h2>Office &amp; janitorial cleaning in Accra</h2></div>
+    <div class="svc-media img-slot reveal">
+      <div class="slides" id="m-off">
+        <img src="card-office.jpg" class="on" alt="HFJS janitorial team on site at Ecobank, Accra">
+      </div>
+      <span class="cap">Janitorial team at Ecobank · Accra</span>
+    </div>
     <div class="reveal">
       <p class="who">For <b>offices, banks, schools, malls, churches and corporate facilities</b> that need reliable, supervised cleaning on a schedule — daily, weekly or monthly routine contracts.</p>
       <ul class="check">
@@ -426,7 +523,7 @@
         <li>Floor scrubbing and polishing</li>
         <li>Flexible scheduling around your working hours — we operate 24/7</li>
       </ul>
-      <p class="meta-line"><b>Contracts:</b> scoped at a free site inspection; the same teams trusted by Ecobank Headquarters, PaySwitch and Stanbic Heights.</p>
+      <p class="meta-line"><b>Contracts:</b> scoped from your requirements on WhatsApp; the same teams trusted by Ecobank Headquarters, PaySwitch and Stanbic Heights.</p>
       <a class="btn" href="https://wa.me/233550267502?text=Hello%20HFJS%2C%20I%27d%20like%20a%20free%20quote%20for%20office%20or%20janitorial%20cleaning.">WhatsApp us — office cleaning quote</a>
     </div>
   </div>
@@ -434,6 +531,12 @@
 <section class="svc-sec " id="postconstruction">
   <div class="wrap">
     <div class="sec-top reveal"><h2>Post-construction cleaning</h2></div>
+    <div class="svc-media img-slot reveal">
+      <div class="slides" id="m-post">
+        <img src="card-postconstruction.jpg" class="on" alt="HFJS crew cleaning a site after construction, Accra">
+      </div>
+      <span class="cap">Post-construction cleaning · Accra</span>
+    </div>
     <div class="reveal">
       <p class="who">For <b>construction companies, property developers and new-building owners</b> preparing a site for handover — removal of everything the builders left behind.</p>
       <ul class="check">
@@ -444,7 +547,7 @@
         <li>Window and frame detail cleaning</li>
         <li>Handover-ready final inspection with sign-off</li>
       </ul>
-      <p class="meta-line"><b>Duration:</b> depends on site size and finishing state — inspected and quoted free before work begins.</p>
+      <p class="meta-line"><b>Duration:</b> depends on site size and finishing state — quoted free before work begins.</p>
       <a class="btn" href="https://wa.me/233550267502?text=Hello%20HFJS%2C%20I%27d%20like%20a%20free%20quote%20for%20post-construction%20cleaning.">WhatsApp us — site cleaning quote</a>
     </div>
   </div>
@@ -452,6 +555,14 @@
 <section class="svc-sec alt" id="highrise">
   <div class="wrap">
     <div class="sec-top reveal"><h2>High-rise &amp; exterior cleaning</h2></div>
+    <div class="svc-media img-slot reveal">
+      <div class="slides" id="m-hr">
+        <img src="highrise-1.jpg" class="on" alt="HFJS boom lift and banner on a high-rise façade job, Accra">
+        <img src="highrise-2.jpg" alt="Boom lift washing a glass tower, Accra">
+        <img src="highrise-3.jpg" alt="HFJS cradle team cleaning a high-rise façade">
+      </div>
+      <span class="cap">High-rise façade work · Central Accra</span>
+    </div>
     <div class="reveal">
       <p class="who">For <b>glass towers, commercial buildings, estates and compounds</b> — the exterior work most cleaning companies in Accra can't take on.</p>
       <ul class="check">
@@ -470,13 +581,20 @@
 <section class="svc-sec " id="specialized">
   <div class="wrap">
     <div class="sec-top reveal"><h2>Disinfection &amp; specialized cleaning</h2></div>
+    <div class="svc-media img-slot reveal">
+      <div class="slides" id="m-spec">
+        <img src="commercial-2.jpg" class="on" alt="HFJS team deep-cleaning a commercial venue, Accra">
+        <img src="commercial-3.jpg" alt="Commercial space cleaned and reset by HFJS, Accra">
+      </div>
+      <span class="cap">Commercial &amp; venue cleaning · Accra</span>
+    </div>
     <div class="reveal">
       <p class="who">For <b>clinics, hospitals, food businesses and anyone who needs more than a surface clean</b> — hygiene-critical environments handled with the right chemicals and procedures.</p>
       <ul class="check">
         <li>Hospital-grade disinfection for offices, homes and commercial buildings</li>
         <li>Medical facility cleaning</li>
         <li>Washroom deep sanitization</li>
-        <li>Upholstery &amp; fabric restoration</li>
+        <li>Fogging &amp; odour treatment</li>
         <li>Before &amp; after event cleaning</li>
         <li>Eco-friendly, approved products throughout</li>
       </ul>
@@ -498,12 +616,12 @@
       <h2>Before you book — the six questions everyone asks.</h2>
     </div>
     <div>
-      <details class="reveal"><summary>Is fumigation safe for my children and pets?</summary><div class="a">Yes — safety is procedural at HFJS. We use EPA-approved chemicals, correct dilution, PPE and warning signage during treatment, and we give you written ventilation and re-entry guidance so you know exactly when it's safe to return. Children and pets simply stay out of the treated area until the stated re-entry time.</div></details>
+      <details class="reveal"><summary>Is fumigation safe for my children and pets?</summary><div class="a">Yes — safety is procedural at HFJS. We use safe, approved chemicals, correct dilution, PPE and warning signage during treatment, and we give you written ventilation and re-entry guidance so you know exactly when it's safe to return. Children and pets simply stay out of the treated area until the stated re-entry time.</div></details>
       <details class="reveal"><summary>How long after fumigation before we can go back inside?</summary><div class="a">Typically 3–5 hours after a simple spraying and 12–24 hours after heavy treatment. Your exact re-entry time is confirmed in writing for your specific job.</div></details>
-      <details class="reveal"><summary>How much do your services cost?</summary><div class="a">Every job is priced individually, because a two-bedroom apartment and a banking hall are not the same job. Message us on WhatsApp, we arrange a free inspection, and you receive a written quotation covering scope, timeline and payment terms — free, with no obligation.</div></details>
+      <details class="reveal"><summary>How much do your services cost?</summary><div class="a">Every job is priced individually, because a two-bedroom apartment and a banking hall are not the same job. Message us on WhatsApp with photos and a short description of the space, and you receive a written quotation covering scope, timeline and payment terms — free, with no obligation.</div></details>
       <details class="reveal"><summary>Which areas do you serve?</summary><div class="a">We're based at Pantang, Accra, and work across Greater Accra daily — Adenta, Madina, Abokobi, East Legon, Spintex, Tema and beyond — with jobs across Ghana on request.</div></details>
-      <details class="reveal"><summary>How often should I fumigate my home or office?</summary><div class="a">It depends on the pest and the environment: for most homes and food businesses in Accra, a quarterly treatment keeps infestations from re-establishing, while high-risk sites go monthly. We offer both as contracts, and our inspection will tell you honestly what your space actually needs.</div></details>
-      <details class="reveal"><summary>Do you bring your own equipment and supplies?</summary><div class="a">Everything — pressure washers, industrial vacuums, floor scrubbers and polishers, fogging machines, telescopic pole systems, and approved chemicals. For high-rise work we bring boom lifts, rope access and water-fed pole systems. You provide access; we provide the rest.</div></details>
+      <details class="reveal"><summary>How often should I fumigate my home or office?</summary><div class="a">It depends on the pest and the environment: for most homes and food businesses in Accra, a quarterly treatment keeps infestations from re-establishing, while high-risk sites go monthly. We offer both as contracts, and we'll tell you honestly what your space actually needs.</div></details>
+      <details class="reveal"><summary>Do you bring your own equipment and supplies?</summary><div class="a">Everything — pressure washers, industrial vacuums, floor scrubbers and polishers, steamers, fogging machines, telescopic pole systems, and approved chemicals. For high-rise work we bring boom lifts, rope access and water-fed pole systems. You provide access; we provide the rest.</div></details>
     </div>
   </div>
 </section>
@@ -511,7 +629,7 @@
 <section class="cta">
   <div class="wrap reveal">
     <h2>One WhatsApp message <em>starts it.</em></h2>
-    <p>Tell us the service, the location, and what you're dealing with. Free inspection, written quotation, and we're available 24/7.</p>
+    <p>Tell us the service, the location, and what you're dealing with. Free written quotation, and we're available 24/7.</p>
     <div class="row">
       <a class="btn light" href="https://wa.me/233550267502?text=Hello%20HFJS%2C%20I%27d%20like%20a%20free%20quote%20for%20cleaning%20or%20fumigation.">WhatsApp us — free quote</a>
       <a class="tel" href="tel:+233550267502">Call 055 026 7502</a>
@@ -521,6 +639,21 @@
 
 <footer>
   <div class="wrap">
+        <div class="clients">
+      <span class="cl-label">Some of the names we&#8217;ve worked with</span>
+      <div class="cl-row">
+        <span class="cl"><img src="client-ecobank.png" alt="Ecobank" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-trasacco.png" alt="Trasacco" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-kss.png" alt="Kwadwo Sheldon Studios" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-ronor.png" alt="Ronor Motors" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-wortech.png" alt="Wortech Solutions" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-korba.png" alt="KORBA" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-payswitch.png" alt="PaySwitch" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-adisco.png" alt="Adisco Club House" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-jeva.png" alt="Jeva Oil" onerror="this.replaceWith(this.alt)"></span>
+        <span class="cl"><img src="client-trademart.png" alt="Trademart" onerror="this.replaceWith(this.alt)"></span>
+      </div>
+    </div>
     <div class="foot-mark">HFJS<small>Hawilma Fumigation &amp; Janitorial Services</small></div>
     <div class="foot-top">
       <span>© 2026 Hawilma Fumigation &amp; Janitorial Services (HFJS) · Y21 Alafia Street, Pantang PNT (GM-085-7730), Accra</span>
@@ -550,6 +683,52 @@
       b.setAttribute('aria-expanded', open);
     }); }
   })();
+</script>
+<script>
+  // section slideshows — same engine as the homepage; auto-discovers numbered photos
+  function slideshow(id, ms, probe){
+    var box = document.getElementById(id);
+    if (!box) return;
+    var slot = box.closest('.img-slot');
+    Array.prototype.forEach.call(box.querySelectorAll('img'), function(im){
+      function drop(){ im.remove(); check(); }
+      if (im.complete && im.naturalWidth === 0) drop();
+      else im.addEventListener('error', drop);
+    });
+    function check(){
+      var live = box.querySelectorAll('img');
+      if (!live.length){ if (slot) slot.classList.add('noimg'); return; }
+      if (!box.querySelector('img.on')) live[0].classList.add('on');
+    }
+    if (probe){
+      var n = probe.start, misses = 0, cap = probe.max || 24;
+      (function next(){
+        if (n > cap || misses > 1) return;
+        var im = new Image();
+        im.onload = function(){ misses = 0; im.alt = probe.alt || ''; box.appendChild(im); n++; next(); };
+        im.onerror = function(){ misses++; n++; next(); };
+        im.src = probe.prefix + n + '.jpg';
+      })();
+    }
+    check();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    setInterval(function(){
+      var live = box.querySelectorAll('img');
+      if (live.length < 2) return;
+      var cur = box.querySelector('img.on') || live[0];
+      var i = Array.prototype.indexOf.call(live, cur);
+      cur.classList.remove('on');
+      live[(i + 1) % live.length].classList.add('on');
+    }, ms);
+  }
+  slideshow('m-fum', 4600);
+  slideshow('m-pw', 3800);
+  slideshow('m-res', 4600);
+  slideshow('m-uph', 4600);
+  slideshow('m-off', 4600);
+  slideshow('m-post', 4600);
+  slideshow('m-hr', 4600, {prefix:'highrise-', start:4, alt:'HFJS high-rise and exterior cleaning job, Accra'});
+  slideshow('m-spec', 4600, {prefix:'commercial-', start:4, alt:'HFJS commercial cleaning job, Accra'});
 </script>
 </body>
 </html>
