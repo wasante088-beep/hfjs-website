@@ -338,6 +338,7 @@
   .svc-media .slides{position:absolute;inset:0}
   .svc-media .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease}
   .svc-media .slides img.on{opacity:1}
+  .svc-media .slides img.portrait{object-position:50% 10%}
   .svc-media .cap{position:absolute;left:16px;bottom:14px;z-index:2;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(15,18,21,.5);padding:7px 12px;border-radius:100px}
   .svc-media.noimg{display:none}
   @media (max-width:720px){ .svc-media{aspect-ratio:4/3;border-radius:16px;margin-bottom:28px} }
@@ -464,7 +465,7 @@
         <img src="wash-before.jpg" data-stock class="on" alt="A compound dark with dirt and algae before HFJS pressure washing, Accra">
         <img src="wash-after.jpg" data-stock alt="The same compound bright and clean after HFJS pressure washing">
       </div>
-      <span class="cap">Compound wash — before &amp; after · Accra</span>
+      <span class="cap">Compound pressure washing · Accra</span>
     </div>
     <div class="reveal">
       <p class="who">For <b>homes, estates, offices and commercial premises</b> across Accra — one of our most requested services. Years of dust, algae and stains lifted off your compound, often in a single day.</p>
@@ -768,7 +769,7 @@
             Array.prototype.forEach.call(box.querySelectorAll('img[data-stock]'), function(st){ st.remove(); });
           }
           misses = 0; im.alt = probe.alt || ''; tagO(im);
-          if (!box.querySelector('img.on')) im.className = 'on';
+          if (!box.querySelector('img.on')) im.classList.add('on');
           box.appendChild(im); n++; next();
         };
         im.onerror = function(){ misses++; n++; next(); };
