@@ -65,28 +65,29 @@
 
   /* ---------- hero ---------- */
   .hero{
-    padding:64px 0 0;position:relative;
-    background:linear-gradient(180deg,#E6EFEE 0%,var(--bg) 82%);
+    padding:64px 0 56px;position:relative;
+    background:var(--indigo);
   }
   .hero::before{
     content:"";position:absolute;inset:0;pointer-events:none;
-    background:repeating-linear-gradient(-45deg,rgba(14,42,71,.05) 0 1px,transparent 1px 13px);
-    -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 88%);
-    mask-image:linear-gradient(180deg,#000 0%,transparent 88%);
+    background:repeating-linear-gradient(-45deg,rgba(255,255,255,.04) 0 1px,transparent 1px 13px);
   }
   .hero > *{position:relative;z-index:1}
+  .hero h1{color:var(--cream)}
+  .hero .label{color:var(--tan)}
+  .hero .btn.line{color:var(--cream);box-shadow:inset 0 0 0 1.5px rgba(243,245,242,.65)}
+  .hero .btn.line:hover{background:var(--cream);color:var(--indigo)}
   .hero .label{margin-bottom:22px;display:block}
-  .hero .label::before{content:"";display:block;width:46px;height:4px;border-radius:2px;background:var(--tan);margin-bottom:14px}
   .hero h1{
     font-size:clamp(46px,8.6vw,104px);
     margin-bottom:26px;max-width:15ch;
   }
-  .hero h1 .ital{font-style:italic;color:var(--indigo)}
+  .hero h1 .ital{font-style:italic;color:var(--tan)}
   .hero-row{
     display:flex;justify-content:space-between;align-items:flex-end;
     gap:32px;padding-bottom:44px;flex-wrap:wrap;
   }
-  .hero-row p{max-width:38ch;font-size:16.5px;color:var(--muted)}
+  .hero-row p{max-width:38ch;font-size:16.5px;color:#B9CBDC}
   .hero-cta{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
   .hero-img{
     height:clamp(300px,52vw,540px);background:var(--bg-deep);position:relative;overflow:hidden;
@@ -425,7 +426,7 @@
     <a class="mm-cta" href="https://wa.me/233550267502?text=Hello%20HFJS%2C%20I%27d%20like%20a%20free%20quote%20for%20">WhatsApp us — free quote</a>
 </div>
 
-<header class="hero" style="padding-bottom:0">
+<header class="hero">
   <div class="wrap">
     <span class="label">Hawilma Fumigation &amp; Janitorial Services — Available 24/7</span>
     <h1>Get your <span class="ital">free quote.</span></h1>

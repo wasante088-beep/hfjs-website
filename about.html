@@ -66,27 +66,28 @@
   /* ---------- hero ---------- */
   .hero{
     padding:64px 0 0;position:relative;
-    background:linear-gradient(180deg,#E6EFEE 0%,var(--bg) 82%);
+    background:var(--indigo);
   }
   .hero::before{
     content:"";position:absolute;inset:0;pointer-events:none;
-    background:repeating-linear-gradient(-45deg,rgba(14,42,71,.05) 0 1px,transparent 1px 13px);
-    -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 88%);
-    mask-image:linear-gradient(180deg,#000 0%,transparent 88%);
+    background:repeating-linear-gradient(-45deg,rgba(255,255,255,.04) 0 1px,transparent 1px 13px);
   }
   .hero > *{position:relative;z-index:1}
+  .hero h1{color:var(--cream)}
+  .hero .label{color:var(--tan)}
+  .hero .btn.line{color:var(--cream);box-shadow:inset 0 0 0 1.5px rgba(243,245,242,.65)}
+  .hero .btn.line:hover{background:var(--cream);color:var(--indigo)}
   .hero .label{margin-bottom:22px;display:block}
-  .hero .label::before{content:"";display:block;width:46px;height:4px;border-radius:2px;background:var(--tan);margin-bottom:14px}
   .hero h1{
     font-size:clamp(46px,8.6vw,104px);
     margin-bottom:26px;max-width:15ch;
   }
-  .hero h1 .ital{font-style:italic;color:var(--indigo)}
+  .hero h1 .ital{font-style:italic;color:var(--tan)}
   .hero-row{
     display:flex;justify-content:space-between;align-items:flex-end;
     gap:32px;padding-bottom:44px;flex-wrap:wrap;
   }
-  .hero-row p{max-width:38ch;font-size:16.5px;color:var(--muted)}
+  .hero-row p{max-width:38ch;font-size:16.5px;color:#B9CBDC}
   .hero-cta{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
   .hero-img{
     height:clamp(300px,52vw,540px);background:var(--bg-deep);position:relative;overflow:hidden;
@@ -261,12 +262,11 @@
   .slides{position:absolute;inset:0}
   .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease}
   .slides img.on{opacity:1}
-  /* ---------- photo strip ---------- */
-  .strip3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .strip3 .sp{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:var(--indigo)}
-  .strip3 .sp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-  @media (max-width:720px){ .strip3{gap:8px} .strip3 .sp{border-radius:12px} }
-  .strip3{padding:0 0 8px;margin-top:-24px}
+  /* ---------- jobs slideshow band ---------- */
+  .aslide{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:21/9;background:var(--indigo);margin:-24px 0 8px}
+  .aslide .cap{position:absolute;left:16px;bottom:14px;z-index:2;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(15,18,21,.5);padding:7px 12px;border-radius:100px}
+  .aslide.noimg{display:none}
+  @media (max-width:720px){ .aslide{aspect-ratio:4/3;border-radius:16px} }
 
   /* ---------- reveal ---------- */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
@@ -362,17 +362,13 @@
     <div class="hero-row">
       <p>Hawilma Fumigation &amp; Janitorial Services is a professional fumigation and cleaning company in Accra. From our base at Pantang, our teams handle everything from bank headquarters to family apartments.</p>
       <div class="hero-cta">
-        <a class="btn" href="contact.html">Get a free quote</a>
+        <a class="btn light" href="contact.html">Get a free quote</a>
         <a class="btn line" href="services.html">See our services</a>
       </div>
     </div>
   </div>
   <div class="hero-img img-slot">
-    <div class="slides" id="aboutSlides">
-      <img src="about-hero.jpg" class="on" alt="The HFJS team, Pantang, Accra">
-      <img src="card-office.jpg" alt="The HFJS janitorial team on site at Ecobank, Accra">
-      <img src="commercial-1.jpg" alt="HFJS staff deep-cleaning a venue carpet with industrial machines">
-    </div>
+    <img src="about-hero.jpg" alt="The HFJS team, Pantang, Accra" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='card-office.jpg';this.alt='The HFJS janitorial team on site at Ecobank, Accra'}else{this.parentElement.classList.add('noimg')}">
     <div class="fb" aria-hidden="true"><span class="g">HFJS</span><span class="l">Team photo coming soon</span></div>
     <span class="caption">The HFJS team · Accra</span>
   </div>
@@ -392,10 +388,15 @@
 </section>
 
 <div class="wrap">
-  <div class="strip3 reveal">
-    <div class="sp"><img src="commercial-2.jpg" alt="HFJS team resetting a commercial venue, Accra" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-    <div class="sp"><img src="highrise-1.jpg" alt="HFJS boom lift on a high-rise façade job, Accra" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-    <div class="sp"><img src="kitchen-after.jpg" alt="A kitchen left gleaming after an HFJS deep clean" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+  <div class="aslide img-slot reveal">
+    <div class="slides" id="aboutShow">
+      <img src="commercial-2.jpg" class="on" alt="HFJS team resetting a commercial venue, Accra">
+      <img src="highrise-1.jpg" alt="HFJS boom lift on a high-rise façade job, Accra">
+      <img src="kitchen-after.jpg" alt="A kitchen left gleaming after an HFJS deep clean">
+      <img src="wash-after.jpg" alt="A compound washed bright and clean by HFJS, Accra">
+      <img src="commercial-3.jpg" alt="Commercial space cleaned and reset by HFJS, Accra">
+    </div>
+    <span class="cap">On the job across Accra</span>
   </div>
 </div>
 
@@ -545,7 +546,7 @@
       live[(i + 1) % live.length].classList.add('on');
     }, ms);
   }
-  slideshow('aboutSlides', 4800);
+  slideshow('aboutShow', 4800);
 </script>
 </body>
 </html>
