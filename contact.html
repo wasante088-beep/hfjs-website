@@ -230,6 +230,18 @@
   .cl{font-family:'Schibsted Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B9CBDC;display:inline-flex;align-items:center;min-height:30px}
   .cl img{height:28px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.85}
   @media (max-width:720px){ .cl-row{gap:12px 22px} .cl{font-size:11.5px} }
+  /* ---------- footer info grid ---------- */
+  .foot-grid{display:grid;grid-template-columns:1.25fr 1fr .75fr .9fr;gap:34px;padding:6px 0 42px}
+  .fcol{display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-size:14px;color:#B9CBDC;line-height:1.55}
+  .fcol .fh{font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--tan);margin-bottom:4px}
+  .fcol a{color:#DCE6EE;text-decoration:none}
+  .fcol a:hover{color:#fff;text-decoration:underline}
+  .socials{display:flex;gap:12px}
+  .socials a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#DCE6EE}
+  .socials a:hover{background:var(--tan);color:var(--ink)}
+  .socials svg{width:18px;height:18px;fill:currentColor}
+  @media (max-width:880px){ .foot-grid{grid-template-columns:1fr 1fr;gap:26px} }
+  @media (max-width:560px){ .foot-grid{grid-template-columns:1fr} }
 
   .foot-top{
     display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
@@ -263,6 +275,23 @@
   /* ---------- reveal ---------- */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
+  /* ---------- floating WhatsApp ---------- */
+  .wa-fab{
+    position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;
+    width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px rgba(15,18,21,.28);
+    transition:transform .15s ease,background .15s ease;
+  }
+  .wa-fab:hover{transform:scale(1.07);background:#1FBF5B}
+  .wa-fab svg{width:30px;height:30px}
+  /* ---------- map ---------- */
+  .map-wrap{margin-top:-32px}
+  .map-band{border-radius:22px;overflow:hidden;aspect-ratio:21/9;background:var(--bg-deep)}
+  .map-band iframe{width:100%;height:100%;border:0;display:block}
+  .map-note{font-size:13.5px;color:var(--muted);margin:14px 0 60px}
+  .map-note a{color:var(--ink);font-weight:600}
+  @media (max-width:720px){ .map-band{aspect-ratio:4/3;border-radius:16px} }
   /* ---------- photo strip ---------- */
   .strip3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
   .strip3 .sp{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:var(--indigo)}
@@ -402,6 +431,9 @@
 </style>
 </head>
 <body>
+<a class="wa-fab" href="https://wa.me/233550267502?text=Hello%20HFJS%2C%20I%27d%20like%20a%20free%20quote." aria-label="Chat with HFJS on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5.1-1.4A10 10 0 1 0 12 2zm5.7 14.1c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-4.9-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.7.9-.5 1.2.7 1.2 1.6 2.1 2.8 2.7.3.2.5.1.7-.1l.8-1c.2-.2.4-.2.6-.1s1.5.7 1.7.8c.3.1.4.2.5.3 0 .1 0 .5-.2 1z"/></svg>
+</a>
 
 <nav>
   <div class="wrap nav-in">
@@ -493,6 +525,13 @@
   </form>
 </div>
 
+<div class="wrap map-wrap">
+  <div class="map-band reveal">
+    <iframe src="https://maps.google.com/maps?q=HFJ%20Cleaning%20%26%20Fumigation%20Services%2C%20P%20%26%20T%20Junction%2C%20Pantang%20Abokobi%20Rd%2C%20Accra&z=16&output=embed" title="HFJS office location — P &amp; T Junction, Pantang Abokobi Road, Accra" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div>
+  <p class="map-note">Y21 Alafia Street, Pantang PNT (GM-085-7730), Accra &nbsp;·&nbsp; <a href="https://maps.app.goo.gl/djqjvRVDWK6unMV17" target="_blank" rel="noopener">Open in Google Maps for directions</a></p>
+</div>
+
 <div class="wrap">
   <div class="strip3 reveal">
     <div class="sp"><img src="card-office.jpg" alt="The HFJS janitorial team on site at Ecobank, Accra" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
@@ -519,13 +558,40 @@
       </div>
     </div>
     <div class="foot-mark">HFJS<small>Hawilma Fumigation &amp; Janitorial Services</small></div>
-    <div class="foot-top">
-      <span>© 2026 Hawilma Fumigation &amp; Janitorial Services (HFJS) · Y21 Alafia Street, Pantang PNT (GM-085-7730), Accra</span>
-      <nav class="f">
+    <div class="foot-grid">
+      <div class="fcol">
+        <span class="fh">Contact</span>
+        <a href="tel:+233550267502">055 026 7502</a>
+        <a href="https://wa.me/233550267502?text=Hello%20HFJS%2C%20I%27d%20like%20a%20free%20quote.">WhatsApp us — free quote</a>
+        <a href="mailto:hajanfum@gmail.com">hajanfum@gmail.com</a>
+        <span>Y21 Alafia Street, Pantang PNT<br>(GM-085-7730), Accra</span>
+      </div>
+      <div class="fcol">
+        <span class="fh">Working hours</span>
+        <span><b style="color:#DCE6EE">Open 24/7</b> — weekends and holidays included. Message us any time and we&#8217;ll respond.</span>
+      </div>
+      <div class="fcol">
+        <span class="fh">Pages</span>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
+      </div>
+      <div class="fcol" id="fcolSocial">
+        <span class="fh">Follow us</span>
+        <div class="socials">
+          <a href="REPLACE-facebook-url" aria-label="HFJS on Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4V14h2.7v8h3.4z"/></svg></a>
+          <a href="REPLACE-instagram-url" aria-label="HFJS on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.8.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.8-.3 1.8-.1 1.3-.1 1.6-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.8.3 1.8.3 1.3.1 1.6.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.8-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.8.3-1.8.1-1.3.1-1.6.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.1-.8-.3-1.8-.3-1.3-.1-1.6-.1-4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.1 1.1 0 1 1-2.3 0 1.1 1.1 0 0 1 2.3 0z"/></svg></a>
+          <a href="REPLACE-tiktok-url" aria-label="HFJS on TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 3c.4 1.9 1.6 3.3 3.6 3.6v2.9c-1.3.1-2.5-.3-3.6-1v6.6c0 4.2-3.6 6.5-6.9 5.5-2.6-.8-4.2-3.4-3.6-6.1.6-2.6 3-4.4 5.8-4v3c-.4-.1-.9-.1-1.3 0-1 .3-1.6 1.1-1.5 2.1.1 1 1 1.8 2 1.8 1.1 0 2-.9 2-2V3h3.5z"/></svg></a>
+          <a href="REPLACE-x-url" aria-label="HFJS on X"><svg viewBox="0 0 24 24"><path d="M17.6 3h3l-6.6 7.5L21.8 21h-6.1l-4.8-6.2L5.4 21h-3l7-8L2.5 3h6.2l4.3 5.7L17.6 3zm-1.1 16.2h1.7L7.7 4.7H5.9l10.6 14.5z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-top">
+      <span>© 2026 Hawilma Fumigation &amp; Janitorial Services (HFJS) · Y21 Alafia Street, Pantang PNT (GM-085-7730), Accra</span>
+      <nav class="f">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
       </nav>
     </div>
   </div>
@@ -568,6 +634,18 @@
     entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
   }, {threshold: 0.12});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+
+<script>
+  // hide any social link whose URL hasn't been filled in yet; hide the column if none are live
+  (function(){
+    var live = 0;
+    document.querySelectorAll('.socials a').forEach(function(a){
+      if (a.getAttribute('href').indexOf('REPLACE') === 0) a.style.display = 'none';
+      else live++;
+    });
+    if (!live){ var c = document.getElementById('fcolSocial'); if (c) c.style.display = 'none'; }
+  })();
 </script>
 </body>
 </html>
