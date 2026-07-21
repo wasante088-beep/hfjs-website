@@ -390,11 +390,11 @@
 <div class="wrap">
   <div class="aslide img-slot reveal">
     <div class="slides" id="aboutShow">
-      <img src="commercial-2.jpg" class="on" alt="HFJS team resetting a commercial venue, Accra">
-      <img src="highrise-1.jpg" alt="HFJS boom lift on a high-rise façade job, Accra">
-      <img src="kitchen-after.jpg" alt="A kitchen left gleaming after an HFJS deep clean">
-      <img src="wash-after.jpg" alt="A compound washed bright and clean by HFJS, Accra">
-      <img src="commercial-3.jpg" alt="Commercial space cleaned and reset by HFJS, Accra">
+      <img src="commercial-2.jpg" data-stock class="on" alt="HFJS team resetting a commercial venue, Accra">
+      <img src="highrise-1.jpg" data-stock alt="HFJS boom lift on a high-rise façade job, Accra">
+      <img src="kitchen-after.jpg" data-stock alt="A kitchen left gleaming after an HFJS deep clean">
+      <img src="wash-after.jpg" data-stock alt="A compound washed bright and clean by HFJS, Accra">
+      <img src="commercial-3.jpg" data-stock alt="Commercial space cleaned and reset by HFJS, Accra">
     </div>
     <span class="cap">On the job across Accra</span>
   </div>
@@ -535,6 +535,24 @@
       if (!live.length){ if (slot) slot.classList.add('noimg'); return; }
       if (!box.querySelector('img.on')) live[0].classList.add('on');
     }
+    if (probe){
+      var n = probe.start, misses = 0, cap = probe.max || 24, found = false;
+      (function next(){
+        if (n > cap || misses > 1) return;
+        var im = new Image();
+        im.onload = function(){
+          if (!found && probe.replace){
+            found = true;
+            Array.prototype.forEach.call(box.querySelectorAll('img[data-stock]'), function(st){ st.remove(); });
+          }
+          misses = 0; im.alt = probe.alt || '';
+          if (!box.querySelector('img.on')) im.className = 'on';
+          box.appendChild(im); n++; next();
+        };
+        im.onerror = function(){ misses++; n++; next(); };
+        im.src = probe.prefix + n + '.jpg';
+      })();
+    }
     check();
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     setInterval(function(){
@@ -546,7 +564,7 @@
       live[(i + 1) % live.length].classList.add('on');
     }, ms);
   }
-  slideshow('aboutShow', 4800);
+  slideshow('aboutShow', 4800, {prefix:'job-', start:1, replace:true, alt:'HFJS team on the job, Accra'});
 </script>
 </body>
 </html>
