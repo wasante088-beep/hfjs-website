@@ -275,7 +275,8 @@
   .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease}
   .slides img.on{opacity:1}
   /* ---------- jobs slideshow band ---------- */
-  .aslide{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:21/9;background:var(--indigo);margin:-24px 0 8px}
+  .aslide{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/9;background:var(--indigo);margin:-24px 0 8px}
+  .aslide .slides img.portrait{object-fit:contain}
   .aslide .cap{position:absolute;left:16px;bottom:14px;z-index:2;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(15,18,21,.5);padding:7px 12px;border-radius:100px}
   .aslide.noimg{display:none}
   @media (max-width:720px){ .aslide{aspect-ratio:4/3;border-radius:16px} }
@@ -577,10 +578,13 @@
     var box = document.getElementById(id);
     if (!box) return;
     var slot = box.closest('.img-slot');
+    function tagO(im){ if (im.naturalWidth && im.naturalHeight > im.naturalWidth) im.classList.add('portrait'); }
     Array.prototype.forEach.call(box.querySelectorAll('img'), function(im){
       function drop(){ im.remove(); check(); }
       if (im.complete && im.naturalWidth === 0) drop();
       else im.addEventListener('error', drop);
+      if (im.complete && im.naturalWidth > 0) tagO(im);
+      else im.addEventListener('load', function(){ tagO(im); });
     });
     function check(){
       var live = box.querySelectorAll('img');
@@ -597,7 +601,7 @@
             found = true;
             Array.prototype.forEach.call(box.querySelectorAll('img[data-stock]'), function(st){ st.remove(); });
           }
-          misses = 0; im.alt = probe.alt || '';
+          misses = 0; im.alt = probe.alt || ''; tagO(im);
           if (!box.querySelector('img.on')) im.className = 'on';
           box.appendChild(im); n++; next();
         };

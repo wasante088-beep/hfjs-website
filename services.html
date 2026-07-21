@@ -333,7 +333,8 @@
   .svc-sec.alt{background:var(--bg-deep)}
   .svc-sec .sec-top{margin-bottom:34px}
   /* ---------- section media ---------- */
-  .svc-media{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:21/9;margin:0 0 38px;background:var(--indigo)}
+  .svc-media{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/9;margin:0 0 38px;background:var(--indigo)}
+  .svc-media .slides img.portrait{object-fit:contain}
   .svc-media .slides{position:absolute;inset:0}
   .svc-media .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease}
   .svc-media .slides img.on{opacity:1}
@@ -743,10 +744,13 @@
     var box = document.getElementById(id);
     if (!box) return;
     var slot = box.closest('.img-slot');
+    function tagO(im){ if (im.naturalWidth && im.naturalHeight > im.naturalWidth) im.classList.add('portrait'); }
     Array.prototype.forEach.call(box.querySelectorAll('img'), function(im){
       function drop(){ im.remove(); check(); }
       if (im.complete && im.naturalWidth === 0) drop();
       else im.addEventListener('error', drop);
+      if (im.complete && im.naturalWidth > 0) tagO(im);
+      else im.addEventListener('load', function(){ tagO(im); });
     });
     function check(){
       var live = box.querySelectorAll('img');
@@ -763,7 +767,7 @@
             found = true;
             Array.prototype.forEach.call(box.querySelectorAll('img[data-stock]'), function(st){ st.remove(); });
           }
-          misses = 0; im.alt = probe.alt || '';
+          misses = 0; im.alt = probe.alt || ''; tagO(im);
           if (!box.querySelector('img.on')) im.className = 'on';
           box.appendChild(im); n++; next();
         };
