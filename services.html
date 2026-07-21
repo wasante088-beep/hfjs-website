@@ -411,7 +411,7 @@
     <div class="sec-top reveal"><h2>Fumigation &amp; pest control</h2></div>
     <div class="svc-media img-slot reveal">
       <div class="slides" id="m-fum">
-        <img src="card-fumigation.jpg" class="on" alt="HFJS technician in PPE fogging a compound at night, Accra">
+        <img src="card-fumigation.jpg" data-stock class="on" alt="HFJS technician in PPE fogging a compound at night, Accra">
       </div>
       <span class="cap">Fumigation on the job · Accra</span>
     </div>
@@ -435,8 +435,8 @@
     <div class="sec-top reveal"><h2>Compound &amp; pressure washing</h2></div>
     <div class="svc-media img-slot reveal">
       <div class="slides" id="m-pw">
-        <img src="wash-before.jpg" class="on" alt="A compound dark with dirt and algae before HFJS pressure washing, Accra">
-        <img src="wash-after.jpg" alt="The same compound bright and clean after HFJS pressure washing">
+        <img src="wash-before.jpg" data-stock class="on" alt="A compound dark with dirt and algae before HFJS pressure washing, Accra">
+        <img src="wash-after.jpg" data-stock alt="The same compound bright and clean after HFJS pressure washing">
       </div>
       <span class="cap">Compound wash — before &amp; after · Accra</span>
     </div>
@@ -460,9 +460,9 @@
     <div class="sec-top reveal"><h2>Residential &amp; deep cleaning</h2></div>
     <div class="svc-media img-slot reveal">
       <div class="slides" id="m-res">
-        <img src="card-residential.jpg" class="on" alt="HFJS staff detail-cleaning a residential interior, Accra">
-        <img src="kitchen-before.jpg" alt="Kitchen floor stained and dirty before an HFJS deep clean">
-        <img src="kitchen-after.jpg" alt="The same kitchen gleaming after the HFJS deep clean">
+        <img src="card-residential.jpg" data-stock class="on" alt="HFJS staff detail-cleaning a residential interior, Accra">
+        <img src="kitchen-before.jpg" data-stock alt="Kitchen floor stained and dirty before an HFJS deep clean">
+        <img src="kitchen-after.jpg" data-stock alt="The same kitchen gleaming after the HFJS deep clean">
       </div>
       <span class="cap">Residential deep cleaning · Accra</span>
     </div>
@@ -486,7 +486,7 @@
     <div class="sec-top reveal"><h2>Sofa, carpet &amp; upholstery cleaning</h2></div>
     <div class="svc-media img-slot reveal">
       <div class="slides" id="m-uph">
-        <img src="commercial-1.jpg" class="on" alt="HFJS staff deep-cleaning carpet with an industrial extraction machine, Accra">
+        <img src="commercial-1.jpg" data-stock class="on" alt="HFJS staff deep-cleaning carpet with an industrial extraction machine, Accra">
       </div>
       <span class="cap">Carpet &amp; upholstery deep clean · Accra</span>
     </div>
@@ -510,7 +510,7 @@
     <div class="sec-top reveal"><h2>Office &amp; janitorial cleaning in Accra</h2></div>
     <div class="svc-media img-slot reveal">
       <div class="slides" id="m-off">
-        <img src="card-office.jpg" class="on" alt="HFJS janitorial team on site at Ecobank, Accra">
+        <img src="card-office.jpg" data-stock class="on" alt="HFJS janitorial team on site at Ecobank, Accra">
       </div>
       <span class="cap">Janitorial team at Ecobank · Accra</span>
     </div>
@@ -534,7 +534,7 @@
     <div class="sec-top reveal"><h2>Post-construction cleaning</h2></div>
     <div class="svc-media img-slot reveal">
       <div class="slides" id="m-post">
-        <img src="card-postconstruction.jpg" class="on" alt="HFJS crew cleaning a site after construction, Accra">
+        <img src="card-postconstruction.jpg" data-stock class="on" alt="HFJS crew cleaning a site after construction, Accra">
       </div>
       <span class="cap">Post-construction cleaning · Accra</span>
     </div>
@@ -584,8 +584,8 @@
     <div class="sec-top reveal"><h2>Disinfection &amp; specialized cleaning</h2></div>
     <div class="svc-media img-slot reveal">
       <div class="slides" id="m-spec">
-        <img src="commercial-2.jpg" class="on" alt="HFJS team deep-cleaning a commercial venue, Accra">
-        <img src="commercial-3.jpg" alt="Commercial space cleaned and reset by HFJS, Accra">
+        <img src="commercial-2.jpg" data-stock class="on" alt="HFJS team deep-cleaning a commercial venue, Accra">
+        <img src="commercial-3.jpg" data-stock alt="Commercial space cleaned and reset by HFJS, Accra">
       </div>
       <span class="cap">Commercial &amp; venue cleaning · Accra</span>
     </div>
@@ -702,11 +702,19 @@
       if (!box.querySelector('img.on')) live[0].classList.add('on');
     }
     if (probe){
-      var n = probe.start, misses = 0, cap = probe.max || 24;
+      var n = probe.start, misses = 0, cap = probe.max || 24, found = false;
       (function next(){
         if (n > cap || misses > 1) return;
         var im = new Image();
-        im.onload = function(){ misses = 0; im.alt = probe.alt || ''; box.appendChild(im); n++; next(); };
+        im.onload = function(){
+          if (!found && probe.replace){
+            found = true;
+            Array.prototype.forEach.call(box.querySelectorAll('img[data-stock]'), function(st){ st.remove(); });
+          }
+          misses = 0; im.alt = probe.alt || '';
+          if (!box.querySelector('img.on')) im.className = 'on';
+          box.appendChild(im); n++; next();
+        };
         im.onerror = function(){ misses++; n++; next(); };
         im.src = probe.prefix + n + '.jpg';
       })();
@@ -722,14 +730,14 @@
       live[(i + 1) % live.length].classList.add('on');
     }, ms);
   }
-  slideshow('m-fum', 4600);
-  slideshow('m-pw', 3800);
-  slideshow('m-res', 4600);
-  slideshow('m-uph', 4600);
-  slideshow('m-off', 4600);
-  slideshow('m-post', 4600);
+  slideshow('m-fum', 4600, {prefix:'fumigation-', start:1, replace:true, alt:'HFJS fumigation job, Accra'});
+  slideshow('m-pw', 3800, {prefix:'compound-', start:1, replace:true, alt:'HFJS compound pressure washing job, Accra'});
+  slideshow('m-res', 4600, {prefix:'residential-', start:1, replace:true, alt:'HFJS residential cleaning job, Accra'});
+  slideshow('m-uph', 4600, {prefix:'upholstery-', start:1, replace:true, alt:'HFJS sofa, carpet and upholstery cleaning, Accra'});
+  slideshow('m-off', 4600, {prefix:'office-', start:1, replace:true, alt:'HFJS office and janitorial cleaning, Accra'});
+  slideshow('m-post', 4600, {prefix:'construction-', start:1, replace:true, alt:'HFJS post-construction cleaning, Accra'});
   slideshow('m-hr', 4600, {prefix:'highrise-', start:4, alt:'HFJS high-rise and exterior cleaning job, Accra'});
-  slideshow('m-spec', 4600, {prefix:'commercial-', start:4, alt:'HFJS commercial cleaning job, Accra'});
+  slideshow('m-spec', 4600, {prefix:'disinfection-', start:1, replace:true, alt:'HFJS disinfection and specialized cleaning, Accra'});
 </script>
 </body>
 </html>
