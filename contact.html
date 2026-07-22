@@ -375,7 +375,7 @@
   /* ---------- mobile menu ---------- */
   .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;margin:-8px;color:var(--ink)}
   .menu-btn svg{display:block;width:26px;height:26px}
-  .mobile-menu{display:none;border-bottom:1px solid var(--hair);background:var(--bg)}
+   .mobile-menu{display:none;border-bottom:1px solid var(--hair);background:var(--bg)}
   .mobile-menu.open{display:block}
   .mobile-menu a{display:block;padding:16px 22px;text-decoration:none;color:var(--ink);font-size:16px;font-weight:500;border-top:1px solid var(--hair)}
   .mobile-menu a:first-child{border-top:none}
@@ -428,6 +428,11 @@
   .qform button:hover{background:#57AC33}
   .qform .fine{font-size:12px;color:#7E97AE;margin-top:14px;text-align:center}
   @media (max-width:880px){ .contact-grid{grid-template-columns:1fr;gap:44px;padding-top:44px} }
+
+  /* ---------- site inspection card on contact page ---------- */
+  .site-inspect{padding:20px 0 48px}
+  .site-inspect .card-wrap{max-width:680px;margin:0 auto}
+  @media (max-width:720px){ .site-inspect{padding:0 0 48px} }
 </style>
 </head>
 <body>
@@ -524,6 +529,26 @@
     <p class="fine">No obligation. Prefer email? <a href="mailto:hajanfum@gmail.com" style="color:var(--tan)">hajanfum@gmail.com</a></p>
   </form>
 </div>
+
+<!-- NEW SECTION: Site Inspection Card (styled like homepage service cards) -->
+<section class="site-inspect">
+  <div class="wrap card-wrap">
+    <a class="card reveal" href="https://wa.me/233550267502?text=Hello%20HFJS%2C%20I'd%20like%20to%20request%20a%20site%20inspection%20for%20commercial%20cleaning." target="_blank" rel="noopener">
+      <div class="card-img img-slot">
+        <img src="site-inspection.jpg" alt="HFJS commercial cleaning site inspection in Accra" loading="lazy" onerror="this.parentElement.classList.add('noimg')">
+        <div class="fb" aria-hidden="true"><span class="g">HFJS</span><span class="l">Site inspection</span></div>
+      </div>
+      <div class="card-body">
+        <div class="card-head">
+          <h3>Request a Site Inspection</h3>
+          <span class="price"><span class="from">Commercial cleaning</span><span class="amt">Free quote</span></span>
+        </div>
+        <p>Need a custom cleaning plan for your office, bank, hotel, or factory? Our team will visit your site, assess the scope, and provide a detailed commercial cleaning proposal — completely free and without obligation.</p>
+        <span class="go">Request inspection on WhatsApp</span>
+      </div>
+    </a>
+  </div>
+</section>
 
 <div class="wrap map-wrap">
   <div class="map-band reveal">
@@ -649,3 +674,4 @@
 </script>
 </body>
 </html>
+```
